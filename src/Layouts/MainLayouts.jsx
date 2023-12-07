@@ -8,7 +8,7 @@ export default function MainLayouts() {
     <div>
       <Navbar />
       <div className="flex items-center justify-center">
-        <button className="btn btn-error">Notice</button>
+        <button className="btn btn-error font-bold">Notice</button>
         <Marquee>
           <p className="font-bold">
             আসালামুয়ালাইকুম{" "}
@@ -21,8 +21,13 @@ export default function MainLayouts() {
           </p>
         </Marquee>
       </div>
-      <div className="container mx-auto">
-        <Outlet />
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4">
+        <div className="border-4">Left</div>
+        <div className="md:col-span-2 border-4">
+          {" "}
+          <Outlet />
+        </div>
+        <div className="border-4">Right</div>
       </div>
       <Footer />
     </div>

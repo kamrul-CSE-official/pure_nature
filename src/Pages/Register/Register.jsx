@@ -3,6 +3,8 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import Navbar from "../../Components/Share/Navbar";
+import Footer from "../../Components/Share/Footer";
 
 export default function Register() {
   const { createUser, signUpWithGoogle } = useContext(AuthContext);
@@ -61,7 +63,8 @@ export default function Register() {
   };
   return (
     <div>
-      <div className="hero min-h-screen bg-green-200">
+      <Navbar />
+      <div className="hero min-h-[90vh] bg-green-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Please Regester</h1>
@@ -126,6 +129,7 @@ export default function Register() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

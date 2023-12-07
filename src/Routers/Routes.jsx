@@ -23,14 +23,6 @@ const routes = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/regester",
-        element: <Register />,
-      },
-      {
         path: "/shop",
         element: <Shop />,
       },
@@ -63,6 +55,14 @@ const routes = createBrowserRouter([
         element: <About />,
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/regester",
+    element: <Register />,
   },
   {
     path: "*",

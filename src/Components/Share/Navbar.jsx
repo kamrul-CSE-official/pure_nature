@@ -1,8 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import ThemeChange from "./ThemeChange";
 import logo from "../../assets/logo.png";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 export default function Navbar() {
+  const { user } = useContext(AuthContext);
+  console.log(user);
   const navLinks = [
     { id: 0, name: "Home", path: "/" },
     { id: 1, name: "About", path: "/about" },
