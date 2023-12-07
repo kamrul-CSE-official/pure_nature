@@ -19,50 +19,42 @@ export default function Login() {
 
     login(email, password)
       .then((result) => {
-        if (result.email) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Successfully Loged in Account",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          navigation("/");
-        }
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `Successfully Loged in Account ${result?.email}`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigation("/");
       })
       .catch((error) => {
-        if (error) {
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Something went wrong!",
-          });
-        }
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `Something went wrong! ${error}`,
+        });
       });
   };
 
   const handleLogInWithGoogle = () => {
     signUpWithGoogle()
       .then((req) => {
-        if (req.email) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Successfully Loged in Account",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `Successfully Loged in Account ${req?.email}`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
         navigation("/");
       })
       .catch((error) => {
-        if (error) {
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Something went wrong!",
-          });
-        }
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `Something went wrong! ${error}`,
+        });
       });
   };
   return (

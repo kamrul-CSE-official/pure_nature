@@ -17,48 +17,40 @@ export default function Register() {
     const password = form.get("password");
     createUser(email, password)
       .then((res) => {
-        if (res.email) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Successfully Created Account",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `Successfully Created Account ${res?.email}`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .catch((error) => {
-        if (error) {
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Something went wrong!",
-          });
-        }
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `Something went wrong! ${error}`,
+        });
       });
   };
 
   const handleSignUpWithGoogle = () => {
     signUpWithGoogle()
       .then((req) => {
-        if (req.email) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Successfully Created Account",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `Successfully Created Account ${req?.email}`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .catch((error) => {
-        if (error) {
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Something went wrong!",
-          });
-        }
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `Something went wrong! ${error}`,
+        });
       });
   };
   return (
