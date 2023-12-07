@@ -1,8 +1,11 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 export default function Login() {
-  const { login } = useContext(AuthContext);
+  const { login, signUpWithGoogle } = useContext(AuthContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -11,25 +14,66 @@ export default function Login() {
     const password = form.get("password");
 
     login(email, password)
-      .then((result) => console.log("Successfuly login. ",result.user))
-      .catch((error) => console.log("Login fail ", error));
+      .then((result) => {
+        if (result.email) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Successfully Loged in Account",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      })
+      .catch((error) => {
+        if (error) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+          });
+        }
+      });
+  };
+
+  const handleLogInWithGoogle = () => {
+    signUpWithGoogle()
+      .then((req) => {
+        if (req.email) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Successfully Loged in Account",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      })
+      .catch((error) => {
+        if (error) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+          });
+        }
+      });
   };
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <div className="hero min-h-screen bg-green-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Login now!</h1>
           <p className="py-6">
             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+            excepturi exercitationem quasi.
           </p>
         </div>
-        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-green-800">
           <form onSubmit={handleLogin} className="card-body">
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text text-white">Email</span>
               </label>
               <input
                 type="email"
@@ -41,7 +85,7 @@ export default function Login() {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text text-white">Password</span>
               </label>
               <input
                 type="password"
@@ -50,16 +94,27 @@ export default function Login() {
                 className="input input-bordered"
                 required
               />
-              <label className="label">
+              {/* <label className="label">
                 <a href="#" className="label-text-alt link link-hover">
                   Forgot password?
                 </a>
-              </label>
+              </label> */}
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+              <button className="btn bg-cyan-500 font-bold text-white">
+                Login
+              </button>
             </div>
           </form>
+          <button
+            onClick={() => handleLogInWithGoogle()}
+            className="btn btn-circle mx-auto"
+          >
+            <FcGoogle size={25} />
+          </button>
+          <Link to="/regester" className="text-white m-3">
+            Create New Account
+          </Link>
         </div>
       </div>
     </div>

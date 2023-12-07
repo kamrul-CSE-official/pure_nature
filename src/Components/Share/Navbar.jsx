@@ -39,9 +39,9 @@ export default function Navbar() {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-green-900 rounded-box w-52 text-white"
           >
             {navLinks?.map((item) => (
-              <Link key={item.id} to={item.path}>
+              <NavLink key={item.id} to={item.path}>
                 {item.name}
-              </Link>
+              </NavLink>
             ))}
             <li>
               <ThemeChange />
@@ -69,7 +69,9 @@ export default function Navbar() {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn bg-yellow-500">Login/SignUp</a>
+        <Link to="/login" className="btn bg-yellow-500">
+          Login/SignUp
+        </Link>
       </div>
     </div>
   );
