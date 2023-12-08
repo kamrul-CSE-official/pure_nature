@@ -9,7 +9,7 @@ export default function RightNav() {
         <figure className="w-1/2 mx-auto mb-0">
           <Lottie animationData={ContactAnimation} />
         </figure>
-        <form className="card-body pt-0 w-full">
+        <form className="flex flex-col items-center justify-center py-5 px-3 w-full">
           <h2 className="card-title">Contact With Us</h2>
           <input
             type="name"
@@ -32,14 +32,14 @@ export default function RightNav() {
             className="input input-bordered input-accent w-full"
           />
           <textarea
-            className="textarea textarea-accent"
+            className="textarea textarea-accent w-full"
             required
             name="message"
             placeholder="মেসেজ"
           ></textarea>
           <button
             type="submit"
-            className="btn bg-gradient-to-r from-green-800 to-green-300 text-white"
+            className="btn bg-gradient-to-r from-green-800 to-green-300 text-white mt-3"
           >
             সেন্ড করুন <RiMailSendLine size={20} />
           </button>

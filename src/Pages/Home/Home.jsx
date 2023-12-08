@@ -31,19 +31,56 @@ export default function Home() {
           infiniteLoop="true"
         >
           <div>
-            <img src={banner1} alt="Slide 1" />
+            <img src={banner1} alt="Slide 1" loading="lazy" />
             <p className="legend">Legend 1</p>
           </div>
           <div>
-            <img src={banner2} alt="Slide 2" />
+            <img src={banner2} alt="Slide 2" loading="lazy" />
             <p className="legend">Legend 2</p>
           </div>
           <div>
-            <img src={banner3} alt="Slide 3" />
+            <img src={banner3} alt="Slide 3" loading="lazy" />
             <p className="legend">Legend 3</p>
           </div>
         </Carousel>
       </div>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias quod sequi
+      porro quibusdam, iusto tempore maiores inventore voluptatum error dolorem
+      a quis quos corporis aperiam recusandae iure natus libero nemo. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Enim corporis vero
+      veritatis assumenda, delectus, voluptate odit nostrum magnam quae ex
+      pariatur, soluta quis ut suscipit? Vitae inventore quo quod repellendus.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi deleniti,
+      maxime velit ea ullam ab odio quibusdam nulla itaque aut distinctio
+      repudiandae veritatis laudantium. Odio excepturi reiciendis fuga sequi
+      placeat? Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
+      quod sequi porro quibusdam, iusto tempore maiores inventore voluptatum
+      error dolorem a quis quos corporis aperiam recusandae iure natus libero
+      nemo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
+      corporis vero veritatis assumenda, delectus, voluptate odit nostrum magnam
+      quae ex pariatur, soluta quis ut suscipit? Vitae inventore quo quod
+      repellendus. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Animi deleniti, maxime velit ea ullam ab odio quibusdam nulla itaque aut
+      distinctio repudiandae veritatis laudantium. Odio excepturi reiciendis
+      fuga sequi placeat? Lorem ipsum dolor sit amet consectetur adipisicing
+      elit. Alias quod sequi porro quibusdam, iusto tempore maiores inventore
+      voluptatum error dolorem a quis quos corporis aperiam recusandae iure
+      natus libero nemo. Lorem ipsum dolor sit amet consectetur adipisicing
+      elit. Enim corporis vero veritatis assumenda, delectus, voluptate odit
+      nostrum magnam quae ex pariatur, soluta quis ut suscipit? Vitae inventore
+      quo quod repellendus. Lorem ipsum dolor sit amet consectetur adipisicing
+      elit. Animi deleniti, maxime velit ea ullam ab odio quibusdam nulla itaque
+      aut distinctio repudiandae veritatis laudantium. Odio excepturi reiciendis
+      fuga sequi placeat? Lorem ipsum dolor sit amet consectetur adipisicing
+      elit. Alias quod sequi porro quibusdam, iusto tempore maiores inventore
+      voluptatum error dolorem a quis quos corporis aperiam recusandae iure
+      natus libero nemo. Lorem ipsum dolor sit amet consectetur adipisicing
+      elit. Enim corporis vero veritatis assumenda, delectus, voluptate odit
+      nostrum magnam quae ex pariatur, soluta quis ut suscipit? Vitae inventore
+      quo quod repellendus. Lorem ipsum dolor sit amet consectetur adipisicing
+      elit. Animi deleniti, maxime velit ea ullam ab odio quibusdam nulla itaque
+      aut distinctio repudiandae veritatis laudantium. Odio excepturi reiciendis
+      fuga sequi placeat?
     </div>
   );
 }
