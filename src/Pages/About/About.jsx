@@ -60,10 +60,10 @@ export default function About() {
 
         <h2 className="text-3xl font-semibold my-4">Our Mission</h2>
         <p className="text-gray-700 leading-relaxed">
-          At [Your Roof Garden Name], we are dedicated to creating a green haven
-          in the heart of the city. Our mission is to promote sustainability,
-          community engagement, and the joy of gardening. We believe that
-          everyone deserves a touch of nature, even in the urban landscape.
+          At Pure Nature, we are dedicated to creating a green haven in the
+          heart of the city. Our mission is to promote sustainability, community
+          engagement, and the joy of gardening. We believe that everyone
+          deserves a touch of nature, even in the urban landscape.
         </p>
 
         {/* Add more sections about your team, events, or anything relevant */}
