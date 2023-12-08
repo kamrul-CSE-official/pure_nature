@@ -3,7 +3,7 @@ import article1 from "../../assets/article2.gif";
 
 export default function Article() {
   return (
-    <div>
+    <div className="relative">
       <div>
         <div className="bg-green-500 text-white py-20 text-center">
           <h1 className="text-4xl font-bold mb-4">
@@ -57,6 +57,12 @@ export default function Article() {
           </div>
         </div>
       </div>
+      <button
+        title="Create An Article"
+        className="btn btn-circle bg-green-600 text-2xl text-white font-extrabold flex items-center justify-center sticky bottom-2 right-0"
+      >
+        +
+      </button>
     </div>
   );
 }

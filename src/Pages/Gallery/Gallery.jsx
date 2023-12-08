@@ -20,6 +20,21 @@ export default function Gallery() {
       img: "https://plus.unsplash.com/premium_photo-1673141390222-2bd01b623bf3?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       title: "আলহামদুলিল্লাহ্ আমাদের আরো একটি সাকসেসফুল প্রজেক্ট",
     },
+    {
+      id: 4,
+      img: "https://images.unsplash.com/photo-1602795969916-bfe693173620?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "মাসাআল্লাহ্ অসাধারন একটা প্রজেক্ট ছিলো",
+    },
+    {
+      id: 5,
+      img: "https://images.unsplash.com/photo-1521708266372-b3547456cc2d?q=80&w=1919&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "মাসাআল্লাহ্ অসাধারন একটা প্রজেক্ট ছিলো",
+    },
+    {
+      id: 6,
+      img: "https://images.unsplash.com/photo-1528475295645-81db59a20ac3?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "মাসাআল্লাহ্ অসাধারন একটা প্রজেক্ট ছিলো",
+    },
   ];
   const [model, setModel] = useState(false);
   const [modalImageData, setModalImageData] = useState([]);
