@@ -1,13 +1,14 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Navbar from "../../Components/Share/Navbar";
 import Footer from "../../Components/Share/Footer";
 
 export default function Register() {
   const { createUser, signUpWithGoogle } = useContext(AuthContext);
+  const navigation = useNavigate();
 
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -24,6 +25,7 @@ export default function Register() {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigation("/");
       })
       .catch((error) => {
         Swal.fire({
@@ -44,6 +46,7 @@ export default function Register() {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigation("/");
       })
       .catch((error) => {
         Swal.fire({

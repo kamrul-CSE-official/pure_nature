@@ -1,7 +1,32 @@
 import { Link } from "react-router-dom";
 import article1 from "../../assets/article2.gif";
+import Swal from "sweetalert2";
+import LoginModal from "./LoginModal";
 
 export default function Article() {
+  const handleCreateAnArticle = async () => {
+    const { value: formValues } = await Swal.fire({
+      title: "You have to login!",
+      html:
+        '<input id="email" class="swal2-input" placeholder="Enter your email">' +
+        '<input id="password" class="swal2-input" type="password" placeholder="Enter your password">' +
+        '<input class="swal2-input btn" type="submit" title="Login With Google">',
+      focusConfirm: false,
+      preConfirm: () => {
+        return {
+          email: document.getElementById("email").value,
+          password: document.getElementById("password").value,
+        };
+      },
+    });
+
+    if (formValues) {
+      Swal.fire(
+        `Entered Email: ${formValues.email}, Entered Password: ${formValues.password}`
+      );
+    }
+  };
+
   return (
     <div className="relative">
       <div>
@@ -58,11 +83,13 @@ export default function Article() {
         </div>
       </div>
       <button
+        onClick={() => handleCreateAnArticle()}
         title="Create An Article"
         className="btn bg-green-600 text-white font-extrabold flex items-center justify-center sticky bottom-2 right-0"
       >
         <span className="text-2xl mb-1">+</span> Create An Article
       </button>
+      <LoginModal />
     </div>
   );
 }

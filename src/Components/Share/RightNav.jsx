@@ -9,7 +9,7 @@ export default function RightNav() {
         <figure className="w-1/2 mx-auto mb-0">
           <Lottie animationData={ContactAnimation} />
         </figure>
-        <form className="flex flex-col items-center justify-center py-5 px-3 w-full">
+        <form className="flex flex-col items-center justify-center py-5 px-3 w-full gap-2">
           <h2 className="card-title">Contact With Us</h2>
           <input
             type="name"

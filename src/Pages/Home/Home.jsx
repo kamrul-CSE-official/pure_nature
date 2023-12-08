@@ -1,27 +1,26 @@
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet-async";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import logo from "../../assets/logo.png";
+// import logo from "../../assets/logo.png";
 import banner1 from "../../assets/Banner1.gif";
 import banner2 from "../../assets/Banner2.gif";
 import banner3 from "../../assets/Banner3.gif";
+import DataFetch from "../../Hooks/DataFetch";
 
 export default function Home() {
+  const { data, loading, error } = DataFetch({
+    api: "http://localhost:5000/products",
+  });
+  console.log("Data: ", data, "Loading", loading, "Error: ", error);
+  const flowerPlants = data.filter((item) => item.type == "Flower Plant");
+  console.log(flowerPlants);
+
   return (
-    <div
-    // style={{
-    //   backgroundImage: `url(${banner1})`,
-    //   backgroundSize: "cover",
-    //   backgroundRepeat: "no-repeat",
-    //   height: "100vh",
-    // }}
-    >
-      <Helmet>
-        <meta charSet="utf-8" />
+    <div>
+      {/* <Helmet>
         <title>Pure Nature | Home</title>
-        <link rel="canonical" href="http://mysite.com/example" />
         <link rel="shortcut icon" href={logo} type="image/x-icon" />
-      </Helmet>
+      </Helmet> */}
       {/* Your other content goes here */}
       <div>
         <Carousel
@@ -44,43 +43,18 @@ export default function Home() {
           </div>
         </Carousel>
       </div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias quod sequi
-      porro quibusdam, iusto tempore maiores inventore voluptatum error dolorem
-      a quis quos corporis aperiam recusandae iure natus libero nemo. Lorem
-      ipsum dolor sit amet consectetur adipisicing elit. Enim corporis vero
-      veritatis assumenda, delectus, voluptate odit nostrum magnam quae ex
-      pariatur, soluta quis ut suscipit? Vitae inventore quo quod repellendus.
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi deleniti,
-      maxime velit ea ullam ab odio quibusdam nulla itaque aut distinctio
-      repudiandae veritatis laudantium. Odio excepturi reiciendis fuga sequi
-      placeat? Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
-      quod sequi porro quibusdam, iusto tempore maiores inventore voluptatum
-      error dolorem a quis quos corporis aperiam recusandae iure natus libero
-      nemo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-      corporis vero veritatis assumenda, delectus, voluptate odit nostrum magnam
-      quae ex pariatur, soluta quis ut suscipit? Vitae inventore quo quod
-      repellendus. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Animi deleniti, maxime velit ea ullam ab odio quibusdam nulla itaque aut
-      distinctio repudiandae veritatis laudantium. Odio excepturi reiciendis
-      fuga sequi placeat? Lorem ipsum dolor sit amet consectetur adipisicing
-      elit. Alias quod sequi porro quibusdam, iusto tempore maiores inventore
-      voluptatum error dolorem a quis quos corporis aperiam recusandae iure
-      natus libero nemo. Lorem ipsum dolor sit amet consectetur adipisicing
-      elit. Enim corporis vero veritatis assumenda, delectus, voluptate odit
-      nostrum magnam quae ex pariatur, soluta quis ut suscipit? Vitae inventore
-      quo quod repellendus. Lorem ipsum dolor sit amet consectetur adipisicing
-      elit. Animi deleniti, maxime velit ea ullam ab odio quibusdam nulla itaque
-      aut distinctio repudiandae veritatis laudantium. Odio excepturi reiciendis
-      fuga sequi placeat? Lorem ipsum dolor sit amet consectetur adipisicing
-      elit. Alias quod sequi porro quibusdam, iusto tempore maiores inventore
-      voluptatum error dolorem a quis quos corporis aperiam recusandae iure
-      natus libero nemo. Lorem ipsum dolor sit amet consectetur adipisicing
-      elit. Enim corporis vero veritatis assumenda, delectus, voluptate odit
-      nostrum magnam quae ex pariatur, soluta quis ut suscipit? Vitae inventore
-      quo quod repellendus. Lorem ipsum dolor sit amet consectetur adipisicing
-      elit. Animi deleniti, maxime velit ea ullam ab odio quibusdam nulla itaque
-      aut distinctio repudiandae veritatis laudantium. Odio excepturi reiciendis
-      fuga sequi placeat?
+      <div>
+        <div>
+          <h3 className="text-3xl font-bold">
+            Awesome <span className="text-green-500">Flower</span> Plants
+          </h3>
+          <div>
+            {flowerPlants.map((item) => (
+              <img key={item._id} src={item.img} alt={item.title} />
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

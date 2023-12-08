@@ -6,8 +6,6 @@ import Register from "../Pages/Register/Register";
 import PageNotFound from "../Pages/PageNotFound/PageNotFound";
 import Shop from "../Pages/Shop/Shop";
 import Rental from "../Pages/Rental/Rental";
-import Irriagation from "../Pages/Irriagation/Irriagation";
-import Contact from "../Pages/Contact/Contact";
 import Design from "../Pages/Design/Design";
 import Article from "../Pages/Article/Article";
 import Gallery from "../Pages/Gallery/Gallery";
@@ -30,14 +28,6 @@ const routes = createBrowserRouter([
       {
         path: "/rental",
         element: <Rental />,
-      },
-      {
-        path: "/irriagation",
-        element: <Irriagation />,
-      },
-      {
-        path: "/contact",
-        element: <Contact />,
       },
       {
         path: "/design",
@@ -75,4 +65,4 @@ const routes = createBrowserRouter([
   },
 ]);
 
-export default routes
+export default routes;
