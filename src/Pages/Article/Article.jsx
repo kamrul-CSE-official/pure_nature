@@ -59,9 +59,9 @@ export default function Article() {
       </div>
       <button
         title="Create An Article"
-        className="btn btn-circle bg-green-600 text-2xl text-white font-extrabold flex items-center justify-center sticky bottom-2 right-0"
+        className="btn bg-green-600 text-white font-extrabold flex items-center justify-center sticky bottom-2 right-0"
       >
-        +
+        <span className="text-2xl mb-1">+</span> Create An Article
       </button>
     </div>
   );

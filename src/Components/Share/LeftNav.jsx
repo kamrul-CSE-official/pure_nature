@@ -7,10 +7,18 @@ export default function LeftNav() {
         Our Best Products
       </h3>
       <ul className="flex flex-row flex-wrap md:flex-col items-center justify-center gap-5 my-5 md:my-10 p-2">
-        <Link className="btn border-4 border-green-400 w-full">চারা গাছ</Link>
-        <Link className="btn border-4 border-green-400 w-full">টপ</Link>
-        <Link className="btn border-4 border-green-400 w-full">সার</Link>
-        <Link className="btn border-4 border-green-400 w-full">বীজ</Link>
+        <Link className="btn border-2 border-green-400 w-full hover:bg-green-400">
+          চারা গাছ
+        </Link>
+        <Link className="btn border-2 border-green-400 w-full hover:bg-green-400">
+          টপ
+        </Link>
+        <Link className="btn border-2 border-green-400 w-full hover:bg-green-400">
+          সার
+        </Link>
+        <Link className="btn border-2 border-green-400 w-full hover:bg-green-400">
+          বীজ
+        </Link>
       </ul>
     </div>
   );

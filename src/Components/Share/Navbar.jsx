@@ -14,9 +14,9 @@ export default function Navbar() {
     { id: 4, name: "Shop", path: "/shop" },
     { id: 5, name: "Gallery", path: "gallery" },
     { id: 6, name: "Rental", path: "/rental" },
-    { id: 7, name: "Irriagation", path: "/irriagation" },
+    // { id: 7, name: "Irriagation", path: "/irriagation" },
     { id: 1, name: "About", path: "/about" },
-    { id: 8, name: "Contact", path: "/contact" },
+    // { id: 8, name: "Contact", path: "/contact" },
   ];
   return (
     <div className="navbar bg-green-900 text-white">
