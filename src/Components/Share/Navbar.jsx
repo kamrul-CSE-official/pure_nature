@@ -9,13 +9,13 @@ export default function Navbar() {
   console.log(user);
   const navLinks = [
     { id: 0, name: "Home", path: "/" },
-    { id: 1, name: "About", path: "/about" },
     { id: 2, name: "Article", path: "/article" },
     { id: 3, name: "Design", path: "/design" },
     { id: 4, name: "Shop", path: "/shop" },
     { id: 5, name: "Gallery", path: "gallery" },
     { id: 6, name: "Rental", path: "/rental" },
     { id: 7, name: "Irriagation", path: "/irriagation" },
+    { id: 1, name: "About", path: "/about" },
     { id: 8, name: "Contact", path: "/contact" },
   ];
   return (
