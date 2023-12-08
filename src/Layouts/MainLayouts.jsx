@@ -23,15 +23,15 @@ export default function MainLayouts() {
           </p>
         </Marquee>
       </div>
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4">
-        <div className="border-4">
+      <div className="px-5 mx-auto grid grid-cols-1 md:grid-cols-4">
+        <div>
           <LeftNav />
         </div>
-        <div className="md:col-span-2 border-4">
+        <div className="md:col-span-2">
           {" "}
           <Outlet />
         </div>
-        <div className="border-4">
+        <div>
           <RightNav />
         </div>
       </div>
