@@ -3,7 +3,7 @@ export default function About() {
     <div>
       <div className="bg-green-500 text-white py-20 text-center">
         <h1 className="text-4xl font-bold mb-4">
-          Welcome to Our Pure Nature Web Site
+          Welcome to Our "Pure Nature" Web Site
         </h1>
         <p className="text-lg">
           Discover the Beauty of Nature in the Heart of the City

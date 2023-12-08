@@ -3,7 +3,7 @@ export default function Contact() {
     <div>
       <div className="bg-green-500 text-white py-20 text-center">
         <h1 className="text-4xl font-bold mb-4">Get in Touch</h1>
-        <p className="text-lg">We'd Love to Hear from You!</p>
+        <p className="text-lg">{"We'd Love to Hear from You!"}</p>
       </div>
 
       <div className="container mx-auto p-8">
