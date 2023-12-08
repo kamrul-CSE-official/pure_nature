@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Rental() {
   const galleryImages = [
     "https://images.unsplash.com/photo-1580600301354-0ce8faef576c?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -25,9 +27,11 @@ export default function Rental() {
               />
               <div className="mt-2 flex flex-col justify-between items-center">
                 <p className="text-gray-700">Rooftop Garden {index + 1}</p>
-                <button className="btn bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">
-                  Book Now
-                </button>
+                <Link to="/rentalDetails">
+                  <button className="btn bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">
+                    See Details
+                  </button>
+                </Link>
               </div>
             </div>
           ))}

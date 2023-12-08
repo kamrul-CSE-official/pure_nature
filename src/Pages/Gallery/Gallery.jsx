@@ -81,11 +81,7 @@ export default function Gallery() {
               className={`${Style.pics} relative hover:border-4 border-green-600 rounded-md overflow-hidden`}
               onClick={() => getImg(img)}
             >
-              <LazyLoad
-                effect="blur"
-                height="auto"
-                placeholderSrc={"দৃশ্যবর্ধন.png"}
-              >
+              <LazyLoad effect="blur" height="auto" placeholderSrc={"logo.png"}>
                 <img src={img.img} alt={img.title} className="w-full" />
               </LazyLoad>
 

@@ -12,6 +12,7 @@ import Design from "../Pages/Design/Design";
 import Article from "../Pages/Article/Article";
 import Gallery from "../Pages/Gallery/Gallery";
 import About from "../Pages/About/About";
+import RentalDetails from "../Pages/RentalDetails/RentalDetails";
 
 const routes = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const routes = createBrowserRouter([
       {
         path: "/gallery",
         element: <Gallery />,
+      },
+      {
+        path: "/rentalDetails",
+        element: <RentalDetails />,
       },
       {
         path: "/about",
