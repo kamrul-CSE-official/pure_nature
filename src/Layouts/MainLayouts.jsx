@@ -2,6 +2,8 @@ import { Outlet } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import Navbar from "../Components/Share/Navbar";
 import Footer from "../Components/Share/Footer";
+import RightNav from "../Components/Share/RightNav";
+import LeftNav from "../Components/Share/LeftNav";
 
 export default function MainLayouts() {
   return (
@@ -22,12 +24,16 @@ export default function MainLayouts() {
         </Marquee>
       </div>
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4">
-        <div className="border-4">Left</div>
+        <div className="border-4">
+          <LeftNav />
+        </div>
         <div className="md:col-span-2 border-4">
           {" "}
           <Outlet />
         </div>
-        <div className="border-4">Right</div>
+        <div className="border-4">
+          <RightNav />
+        </div>
       </div>
       <Footer />
     </div>
