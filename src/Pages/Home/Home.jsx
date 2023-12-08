@@ -24,7 +24,12 @@ export default function Home() {
       </Helmet>
       {/* Your other content goes here */}
       <div>
-        <Carousel showThumbs={false} autoPlay={true} showArrows={true}>
+        <Carousel
+          showThumbs={false}
+          autoPlay="true"
+          showArrows={true}
+          infiniteLoop="true"
+        >
           <div>
             <img src={banner1} alt="Slide 1" />
             <p className="legend">Legend 1</p>
