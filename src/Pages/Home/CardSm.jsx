@@ -3,7 +3,7 @@ import Style from "./CardSm.module.css";
 import { Link } from "react-router-dom";
 
 export default function CardSm({ item }) {
-  const { img, details, price, name, supplier, stock, _id } = item;
+  const { img, details, price, name, _id } = item;
   return (
     <div>
       <div className="card bg-base-100 shadow-xl hover:scale-105 duration-200">
@@ -22,10 +22,7 @@ export default function CardSm({ item }) {
             <div className="badge badge-secondary">৳ {price}</div>
           </h2>
           <p>{details.slice(0, 90)}...</p>
-          <div className="card-actions justify-end">
-            <div className="badge badge-outline">Supplier: {supplier}</div>
-            <div className="badge badge-outline">Stock: {stock}</div>
-          </div>
+
           <Link to={`/productsDetails/${_id}`}>
             {" "}
             <button className="btn btn-outline hover:bg-green-600">

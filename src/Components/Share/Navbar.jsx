@@ -73,9 +73,13 @@ export default function Navbar() {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to="/login" className="btn bg-yellow-500">
-          Login/SignUp
-        </Link>
+        {!user ? (
+          <Link to="/login" className="btn bg-yellow-500">
+            Login/SignUp
+          </Link>
+        ) : (
+          <p>{user.email}</p>
+        )}
       </div>
     </div>
   );

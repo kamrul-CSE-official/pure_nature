@@ -50,7 +50,9 @@ const routes = createBrowserRouter([
         path: "/productsDetails/:id",
         element: <ProductsDetails />,
         loader: ({ params }) =>
-          fetch(`${process.env.VITE_SERVERapi}/productsDetails/${params.id}`),
+          fetch(
+            `${import.meta.env.VITE_SERVERapi}/productsDetails/${params.id}`
+          ),
       },
       {
         path: "/about",
