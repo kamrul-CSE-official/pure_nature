@@ -1,25 +1,47 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 export default function LeftNav() {
   const { user } = useContext(AuthContext);
+  const [click, setClick] = useState("");
+
   return (
     <div className="sticky top-0 left-0">
       <h3 className="mx-auto text-2xl font-extrabold my-3 text-green-800">
         Our Best Products
       </h3>
       <ul className="flex flex-row flex-wrap md:flex-col items-center justify-center gap-5 mg:my-5 md:my-10 md:p-2">
-        <Link className="btn border-2 border-green-400 md:w-full hover:bg-green-400">
+        <Link
+          onClick={() => setClick("chara")}
+          className={`btn border-2 border-green-400 md:w-full hover:bg-green-400 ${
+            click === "chara" && "bg-green-400"
+          }`}
+        >
           চারা গাছ
         </Link>
-        <Link className="btn border-2 border-green-400 md:w-full hover:bg-green-400">
+        <Link
+          onClick={() => setClick("tup")}
+          className={`btn border-2 border-green-400 md:w-full hover:bg-green-400 ${
+            click === "tup" && "bg-green-400"
+          }`}
+        >
           টপ
         </Link>
-        <Link className="btn border-2 border-green-400 md:w-full hover:bg-green-400">
+        <Link
+          onClick={() => setClick("shar")}
+          className={`btn border-2 border-green-400 md:w-full hover:bg-green-400 ${
+            click === "shar" && "bg-green-400"
+          }`}
+        >
           সার
         </Link>
-        <Link className="btn border-2 border-green-400 md:w-full hover:bg-green-400">
+        <Link
+          onClick={() => setClick("bij")}
+          className={`btn border-2 border-green-400 md:w-full hover:bg-green-400 ${
+            click === "bij" && "bg-green-400"
+          }`}
+        >
           বীজ
         </Link>
         <div className="container mx-auto text-xl font-bold">
