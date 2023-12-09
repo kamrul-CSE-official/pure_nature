@@ -1,0 +1,7 @@
+.cardImg {
+    width: 337px;
+    height: 256px;
+    object-fit: cover;
+    object-position: center center;
+    background-color: #f25d23;
+}

@@ -6,15 +6,18 @@ import banner1 from "../../assets/Banner1.gif";
 import banner2 from "../../assets/Banner2.gif";
 import banner3 from "../../assets/Banner3.gif";
 import DataFetch from "../../Hooks/DataFetch";
+import CardSm from "./CardSm";
+import Loading from "../../Components/Share/Loading";
 
 export default function Home() {
   const { data, loading, error } = DataFetch({
-    api: "http://localhost:5000/products",
+    api: `${import.meta.env.VITE_SERVERapi}/products`,
   });
-  console.log("Data: ", data, "Loading", loading, "Error: ", error);
   const flowerPlants = data.filter((item) => item.type == "Flower Plant");
-  console.log(flowerPlants);
 
+  if (!data || !flowerPlants || loading || error !== null) {
+    return <Loading />;
+  }
   return (
     <div>
       {/* <Helmet>
@@ -48,9 +51,9 @@ export default function Home() {
           <h3 className="text-3xl font-bold">
             Awesome <span className="text-green-500">Flower</span> Plants
           </h3>
-          <div>
-            {flowerPlants.map((item) => (
-              <img key={item._id} src={item.img} alt={item.title} />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-2">
+            {flowerPlants.slice(0, 6).map((item) => (
+              <CardSm key={item._id} item={item} />
             ))}
           </div>
         </div>

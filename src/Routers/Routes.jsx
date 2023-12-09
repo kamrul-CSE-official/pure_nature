@@ -11,6 +11,7 @@ import Article from "../Pages/Article/Article";
 import Gallery from "../Pages/Gallery/Gallery";
 import About from "../Pages/About/About";
 import RentalDetails from "../Pages/RentalDetails/RentalDetails";
+import ProductsDetails from "../Pages/ProductsDetails/ProductsDetails";
 
 const routes = createBrowserRouter([
   {
@@ -44,6 +45,12 @@ const routes = createBrowserRouter([
       {
         path: "/rentalDetails",
         element: <RentalDetails />,
+      },
+      {
+        path: "/productsDetails/:id",
+        element: <ProductsDetails />,
+        loader: ({ params }) =>
+          fetch(`${process.env.VITE_SERVERapi}/productsDetails/${params.id}`),
       },
       {
         path: "/about",
