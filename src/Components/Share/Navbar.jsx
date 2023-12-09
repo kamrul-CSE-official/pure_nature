@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 export default function Navbar() {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   console.log(user);
   const navLinks = [
     { id: 0, name: "Home", path: "/" },
@@ -18,6 +18,11 @@ export default function Navbar() {
     { id: 1, name: "About", path: "/about" },
     // { id: 8, name: "Contact", path: "/contact" },
   ];
+
+  const handleLogout = () => {
+    logOut().then();
+  };
+
   return (
     <div className="navbar bg-green-900 text-white">
       <div className="navbar-start">
@@ -72,15 +77,51 @@ export default function Navbar() {
           </li>
         </ul>
       </div>
-      <div className="navbar-end">
-        {!user ? (
+      {!user ? (
+        <div className="navbar-end">
           <Link to="/login" className="btn bg-yellow-500">
             Login/SignUp
           </Link>
-        ) : (
-          <p>{user.email}</p>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div className="navbar-end">
+          <div className="dropdown dropdown-end">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
+            >
+              <div className="w-10 rounded-full">
+                <img
+                  alt="Tailwind CSS Navbar component"
+                  src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                />
+              </div>
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[10] p-2 shadow bg-slate-800 rounded-box w-52 border-2 border-green-600"
+            >
+              <li>
+                <a className="justify-between">
+                  Profile
+                  <span className="badge">New</span>
+                </a>
+              </li>
+              <li>
+                <a>Dashboard</a>
+              </li>
+              <li
+                onClick={() => {
+                  handleLogout();
+                }}
+              >
+                <a>Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
