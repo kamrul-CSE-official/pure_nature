@@ -1,4 +1,4 @@
-import LazyLoad from "react-lazy-load";
+// import LazyLoad from "react-lazy-load";
 import "aos/dist/aos.css";
 import Style from "./CardSm.module.css";
 import { Link } from "react-router-dom";
@@ -10,13 +10,18 @@ export default function CardSm({ item }) {
     <div>
       <div className="card bg-base-100 shadow-xl hover:scale-105 duration-200">
         <figure>
-          <LazyLoad effect="blur" height="auto" placeholderSrc={"logo.png"}>
+          {/* <LazyLoad effect="blur" height="auto" placeholderSrc={"logo.png"}>
             <img
               className={`mx-auto ${Style.cardImg}`}
               src={img}
               alt="card-img"
             />
-          </LazyLoad>
+          </LazyLoad> */}
+          <img
+            className={`mx-auto ${Style.cardImg}`}
+            src={img}
+            alt="card-img"
+          />
         </figure>
         <div className="card-body p-2">
           <h2 className="card-title">

@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import { CgProfile } from "react-icons/cg";
 import ThemeChange from "./ThemeChange";
 import logo from "../../assets/logo.png";
 import { useContext } from "react";
@@ -91,11 +92,8 @@ export default function Navbar() {
               role="button"
               className="btn btn-ghost btn-circle avatar"
             >
-              <div className="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                />
+              <div className="w-10 rounded-full" title="Profile">
+                <CgProfile size={30} />
               </div>
             </div>
             <ul
@@ -115,6 +113,7 @@ export default function Navbar() {
                 onClick={() => {
                   handleLogout();
                 }}
+                className="btn btn-error"
               >
                 <a>Logout</a>
               </li>
