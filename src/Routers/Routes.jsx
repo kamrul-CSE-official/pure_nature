@@ -13,9 +13,9 @@ import About from "../Pages/About/About";
 import PageNotFound from "../Pages/PageNotFound/PageNotFound";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
-import Profile from "../Pages/Profile/profile";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
+import Profile from "../Pages/Profile/profile";
 
 // Define your routes with meaningful names
 const mainRoutes = [
@@ -53,7 +53,7 @@ const loginRoutes = [
     path: "/profile",
     element: (
       <PrivateRoute>
-        <Profile />{" "}
+        <Profile />
       </PrivateRoute>
     ),
   },
