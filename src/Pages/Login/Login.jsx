@@ -3,8 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
-import Navbar from "../../Components/Share/Navbar";
-import Footer from "../../Components/Share/Footer";
+// import Navbar from "../../Components/Share/Navbar";
+// import Footer from "../../Components/Share/Footer";
 
 export default function Login() {
   const { login, signUpWithGoogle } = useContext(AuthContext);
@@ -59,7 +59,6 @@ export default function Login() {
   };
   return (
     <div>
-      <Navbar />
       <div className="hero min-h-screen bg-green-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
@@ -112,13 +111,12 @@ export default function Login() {
             >
               <FcGoogle size={25} />
             </button>
-            <Link to="/regester" className="text-white m-3">
+            <Link to="/register" className="text-white m-3">
               Create New Account
             </Link>
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

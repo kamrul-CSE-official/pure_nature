@@ -44,7 +44,7 @@ export default function LeftNav() {
         >
           বীজ
         </Link>
-        <div className="container mx-auto text-xl font-bold">
+        <div className="container mx-auto text-xl font-bold text-center my-2">
           <h3 className="text-xl">
             Hi <span className="text-green-700">{user?.email}😍</span>
           </h3>

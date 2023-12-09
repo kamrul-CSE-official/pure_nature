@@ -65,7 +65,7 @@ export default function Gallery() {
           <button
             onClick={() => setModel(false)}
             title="Close"
-            className="btn rounded-full absolute top-10 right-10 bg-red-500"
+            className="btn btn-circle rounded-full absolute top-10 right-10 bg-red-500"
           >
             {/* <RiCloseCircleFill size={20} color="white" /> */} X
           </button>

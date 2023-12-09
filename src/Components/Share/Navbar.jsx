@@ -10,11 +10,11 @@ export default function Navbar() {
   console.log(user);
   const navLinks = [
     { id: 0, name: "Home", path: "/" },
+    { id: 4, name: "Shop", path: "/shop" },
+    { id: 6, name: "Rental", path: "/rental" },
     { id: 2, name: "Article", path: "/article" },
     { id: 3, name: "Design", path: "/design" },
-    { id: 4, name: "Shop", path: "/shop" },
     { id: 5, name: "Gallery", path: "gallery" },
-    { id: 6, name: "Rental", path: "/rental" },
     // { id: 7, name: "Irriagation", path: "/irriagation" },
     { id: 1, name: "About", path: "/about" },
     // { id: 8, name: "Contact", path: "/contact" },
@@ -101,19 +101,18 @@ export default function Navbar() {
               className="menu menu-sm dropdown-content mt-3 z-[10] p-2 shadow bg-slate-800 rounded-box w-52 border-2 border-green-600"
             >
               <li>
-                <a className="justify-between">
+                <Link to="/profile" className="justify-between">
                   Profile
-                  <span className="badge">New</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a>Dashboard</a>
+                <Link to="/dashboard">Dashboard</Link>
               </li>
               <li
                 onClick={() => {
                   handleLogout();
                 }}
-                className="btn btn-error"
+                className="btn btn-error mt-5"
               >
                 <a>Logout</a>
               </li>
