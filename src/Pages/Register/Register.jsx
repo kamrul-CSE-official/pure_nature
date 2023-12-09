@@ -83,6 +83,18 @@ export default function Register() {
               </div>
               <div className="form-control">
                 <label className="label">
+                  <span className="label-text text-white">Photo URL</span>
+                </label>
+                <input
+                  type="text"
+                  name="img"
+                  placeholder="Photo URL"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
                   <span className="label-text text-white">Email</span>
                 </label>
                 <input
