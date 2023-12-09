@@ -1,9 +1,11 @@
 import LazyLoad from "react-lazy-load";
+import "aos/dist/aos.css";
 import Style from "./CardSm.module.css";
 import { Link } from "react-router-dom";
 
 export default function CardSm({ item }) {
   const { img, details, price, name, _id } = item;
+
   return (
     <div>
       <div className="card bg-base-100 shadow-xl hover:scale-105 duration-200">
