@@ -1,11 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import moment from "moment";
 
 export default function AddArticle() {
+  const { user } = useContext(AuthContext);
+
   const [articleData, setArticleData] = useState({
     title: "",
     content: "",
     img: "",
   });
+
+  const [contentError, setContentError] = useState("");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -15,9 +21,25 @@ export default function AddArticle() {
     }));
   };
 
+  const validateContent = () => {
+    const wordCount = articleData.content.trim().split(/\s+/).length;
+    if (wordCount < 300) {
+      setContentError("Content must be at least 300 words.");
+      return false;
+    } else {
+      setContentError("");
+      return true;
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: Add logic to submit articleData to your backend
+
+    // Validate content before submitting
+    if (!validateContent()) {
+      return;
+    }
+
     console.log("Article submitted:", articleData);
     // Reset form fields
     setArticleData({
@@ -62,9 +84,12 @@ export default function AddArticle() {
               value={articleData.content}
               onChange={handleInputChange}
               rows="5"
-              className="textarea textarea-accent w-full"
+              className={`textarea textarea-accent w-full ${
+                contentError ? "border-red-500" : ""
+              }`}
               required
             ></textarea>
+            {contentError && <p className="text-red-500">{contentError}</p>}
           </div>
           <div className="mb-4">
             <label
@@ -89,6 +114,15 @@ export default function AddArticle() {
             Submit Article
           </button>
         </form>
+        <div className="my-5 border-3">
+          <p>
+            Author: <span className="font-bold">{user?.name}</span>
+          </p>
+          <p>
+            Date:{" "}
+            <span className="font-bold">{moment().format("MMMM D, YYYY")}</span>
+          </p>
+        </div>
       </div>
     </div>
   );
