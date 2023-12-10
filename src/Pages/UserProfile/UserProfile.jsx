@@ -58,7 +58,7 @@ export default function UserProfile() {
           </div>
         </div>
         <Link
-          to=""
+          to="/addArticle"
           className="absolute bottom-0 right-0 text-lg font-bold text-white btn bg-green-700"
         >
           + Add Article

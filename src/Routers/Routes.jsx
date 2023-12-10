@@ -16,6 +16,7 @@ import Register from "../Pages/Register/Register";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import UserProfile from "../Pages/UserProfile/UserProfile";
+import AddArticle from "../Pages/AddArticle/AddArticle";
 
 // Define your routes with meaningful names
 const mainRoutes = [
@@ -62,6 +63,14 @@ const loginRoutes = [
     element: (
       <PrivateRoute>
         <Dashboard />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/addArticle",
+    element: (
+      <PrivateRoute>
+        <AddArticle />
       </PrivateRoute>
     ),
   },
