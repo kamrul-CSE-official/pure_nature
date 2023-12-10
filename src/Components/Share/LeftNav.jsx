@@ -46,11 +46,11 @@ export default function LeftNav() {
         </Link>
         {user && (
           <div className="container mx-auto text-xl font-bold text-center my-2">
-            <div className="avatar">
+            <Link to="/profile" className="avatar">
               <div className="w-14 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                 <img src={user?.img} />
               </div>
-            </div>
+            </Link>
             <h3 className="text-xl">
               Hi, <span className="text-green-700">{user?.name}😍</span>
             </h3>
