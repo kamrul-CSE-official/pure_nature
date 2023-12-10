@@ -8,11 +8,13 @@ import banner3 from "../../assets/Banner3.gif";
 import DataFetch from "../../Hooks/DataFetch";
 import CardSm from "./CardSm";
 import Loading from "../../Components/Share/Loading";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function Home() {
+  const [selectedAccordion, setSelectedAccordion] = useState(1);
+
   const { data, loading, error } = DataFetch({
     api: `${import.meta.env.VITE_SERVERapi}/products`,
   });
@@ -22,6 +24,9 @@ export default function Home() {
     (item) => item.type == "Agricultural Instruments"
   );
 
+  const handleAccordionChange = (index) => {
+    setSelectedAccordion(index);
+  };
   useEffect(() => {
     AOS.init();
   }, []);
@@ -87,9 +92,15 @@ export default function Home() {
             আমাদের সম্পর্কে আপনাদের যত জিঙ্গাসা
           </h2>
           <div className="collapse collapse-arrow bg-base-200">
-            <input type="radio" name="my-accordion-2" checked="checked" />
+            <input
+              type="radio"
+              name="my-accordion-2"
+              id="accordion1"
+              checked={selectedAccordion === 1}
+              onChange={() => handleAccordionChange(1)}
+            />
             <div className="collapse-title text-xl font-medium">
-              কেন আমাদের সারর্বিস নিবেন ?
+              কেন আমাদের সার্ভিস নিবেন ?
             </div>
             <div className="collapse-content">
               <p>
@@ -101,7 +112,13 @@ export default function Home() {
             </div>
           </div>
           <div className="collapse collapse-arrow bg-base-200">
-            <input type="radio" name="my-accordion-2" />
+            <input
+              type="radio"
+              name="my-accordion-2"
+              id="accordion2"
+              checked={selectedAccordion === 2}
+              onChange={() => handleAccordionChange(2)}
+            />
             <div className="collapse-title text-xl font-medium">
               আমারা কেন বেস্ট ?
             </div>
@@ -115,7 +132,13 @@ export default function Home() {
             </div>
           </div>
           <div className="collapse collapse-arrow bg-base-200">
-            <input type="radio" name="my-accordion-2" />
+            <input
+              type="radio"
+              name="my-accordion-2"
+              id="accordion3"
+              checked={selectedAccordion === 3}
+              onChange={() => handleAccordionChange(3)}
+            />
             <div className="collapse-title text-xl font-medium">
               আমারা কেন অন্যদের থেকে আলাদা ?
             </div>

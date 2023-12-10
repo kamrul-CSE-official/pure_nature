@@ -4,65 +4,72 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
-// import Navbar from "../../Components/Share/Navbar";
-// import Footer from "../../Components/Share/Footer";
 
 export default function Register() {
   const { createUser, signUpWithGoogle } = useContext(AuthContext);
   const navigation = useNavigate();
 
-  const handleSignUp = (e) => {
-    e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    const name = form.get("name");
-    const img = form.get("img");
-    const email = form.get("email");
-    const password = form.get("password");
-    const user = { name, email, img };
-    createUser(email, password)
-      .then((res) => {
-        //${import.meta.env.VITE_SERVERapi}
-        axios.post(`http://localhost:5000/users`, user).then((data) => {
-          if (data?.data) {
-            Swal.fire({
-              position: "top-end",
-              icon: "success",
-              title: `Successfully Created Account ${res?.email}`,
-              showConfirmButton: false,
-              timer: 1500,
-            });
-            navigation("/");
-          }
-        });
-      })
-      .catch((error) => {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: `Something went wrong! ${error}`,
-        });
-      });
+  const handleApiError = (error) => {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: `Something went wrong! ${error}`,
+    });
   };
 
-  const handleSignUpWithGoogle = () => {
-    signUpWithGoogle()
-      .then((req) => {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: `Successfully Created Account ${req?.email}`,
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        navigation("/");
-      })
-      .catch((error) => {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: `Something went wrong! ${error}`,
-        });
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+
+    try {
+      const form = new FormData(e.currentTarget);
+      const name = form.get("name");
+      const img = form.get("img");
+      const email = form.get("email");
+      const password = form.get("password");
+
+      const user = { name, email, img };
+
+      const res = await createUser(email, password);
+
+      await axios.post(`${import.meta.env.VITE_SERVERapi}/users`, user);
+
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: `Successfully Created Account ${res?.email}`,
+        showConfirmButton: false,
+        timer: 1500,
       });
+
+      navigation("/");
+    } catch (error) {
+      handleApiError(error);
+    }
+  };
+
+  const handleSignUpWithGoogle = async () => {
+    try {
+      const req = await signUpWithGoogle();
+      const name = req?.user?.displayName;
+      const email = req?.user?.email;
+      const img = req?.user?.photoURL;
+
+      const user = { name, email, img };
+
+      await axios.post(`${import.meta.env.VITE_SERVERapi}/users`, user);
+
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: `Successfully Created Account ${req?.user?.email}`,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+
+      navigation("/");
+    } catch (error) {
+      handleApiError(error);
+    }
   };
   return (
     <div>

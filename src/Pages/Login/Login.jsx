@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import axios from "axios";
 // import Navbar from "../../Components/Share/Navbar";
 // import Footer from "../../Components/Share/Footer";
 
@@ -10,6 +11,14 @@ export default function Login() {
   const { login, signUpWithGoogle } = useContext(AuthContext);
 
   const navigation = useNavigate();
+
+  const handleApiError = (error) => {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: `Something went wrong! ${error}`,
+    });
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -37,25 +46,29 @@ export default function Login() {
       });
   };
 
-  const handleLogInWithGoogle = () => {
-    signUpWithGoogle()
-      .then((req) => {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: `Successfully Loged in Account ${req?.email}`,
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        navigation("/");
-      })
-      .catch((error) => {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: `Something went wrong! ${error}`,
-        });
+  const handleLogInWithGoogle = async () => {
+    try {
+      const req = await signUpWithGoogle();
+      const name = req?.user?.displayName;
+      const email = req?.user?.email;
+      const img = req?.user?.photoURL;
+
+      const user = { name, email, img };
+
+      await axios.post(`${import.meta.env.VITE_SERVERapi}/users`, user);
+
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: `Successfully Created Account ${req?.user?.email}`,
+        showConfirmButton: false,
+        timer: 1500,
       });
+
+      navigation("/");
+    } catch (error) {
+      handleApiError(error);
+    }
   };
   return (
     <div>
