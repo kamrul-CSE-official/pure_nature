@@ -42,7 +42,7 @@ export default function AuthProvider({ children }) {
   const handleUserDataGet = (email) => {
     if (email) {
       axios
-        .get(`http://localhost:5000/users/${email}`)
+        .get(`${import.meta.env.VITE_SERVERapi}/users/${email}`)
         .then((response) => {
           setUser((prevUser) => ({ ...prevUser, ...response.data }));
         })
