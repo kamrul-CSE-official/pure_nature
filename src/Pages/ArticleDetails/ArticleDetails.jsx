@@ -52,14 +52,33 @@ export default function ArticleDetails() {
             alt="Rooftop Gardening"
           />
           <p className="text-gray-500 text-sm mb-4">
-            Published on {data?.article?.date} | {data?.article?.author}
+            Published on {data?.article?.date}
           </p>
+          <div className="flex items-center gap-4 my-4">
+            <div className="avatar">
+              <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                <img
+                  src={
+                    data?.article?.authorImg
+                      ? data?.article?.authorImg
+                      : "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  }
+                />
+              </div>
+            </div>
+            <p className="font-bold text-lg">{data?.article?.author}</p>
+          </div>
           <h1 className="text-4xl font-bold mb-4">{data?.article?.title}</h1>
           <p className="text-gray-700 mb-4">{data?.article?.content}</p>
         </div>
         {data?.article?.email == user.email && (
           <div className="join gap-2">
-            <Link className="btn btn-primary">Edit</Link>
+            <Link
+              to={`/articleUpdate/${data?.article?._id}`}
+              className="btn btn-primary"
+            >
+              Update
+            </Link>
             <button
               onClick={() => handleDelete(data?.article?._id)}
               className="btn btn-error text-white"

@@ -18,6 +18,7 @@ import PrivateRoute from "./PrivateRoute";
 import UserProfile from "../Pages/UserProfile/UserProfile";
 import AddArticle from "../Pages/AddArticle/AddArticle";
 import ArticleDetails from "../Pages/ArticleDetails/ArticleDetails";
+import UpdateArticle from "../Pages/UpdateArticle/UpdateArticle";
 
 // Define your routes with meaningful names
 const mainRoutes = [
@@ -80,6 +81,16 @@ const loginRoutes = [
     element: (
       <PrivateRoute>
         <ArticleDetails />
+      </PrivateRoute>
+    ),
+    loader: ({ params }) =>
+      fetch(`${import.meta.env.VITE_SERVERapi}/articles/${params.id}`),
+  },
+  {
+    path: "/articleUpdate/:id",
+    element: (
+      <PrivateRoute>
+        <UpdateArticle />
       </PrivateRoute>
     ),
     loader: ({ params }) =>
