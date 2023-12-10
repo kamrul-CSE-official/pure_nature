@@ -4,7 +4,7 @@ import article1 from "../../assets/article2.gif";
 export default function Article() {
   return (
     <div>
-      <div>
+      <div className="relative">
         <div className="bg-green-500 text-white py-20 text-center">
           <h1 className="text-4xl font-bold mb-4">
             Exploring the Benefits of Rooftop Gardening
@@ -30,7 +30,10 @@ export default function Article() {
               creative ways to bring greenery into their lives. In this article,
               we'll explore the numerous benefits of cultivating a garden in the
               sky and how it can enhance your quality of life.{" "}
-              <Link to="" className="text-blue-600 text-xl font-bold">
+              <Link
+                to="/articleDetails"
+                className="text-blue-600 text-xl font-bold"
+              >
                 Read More
               </Link>
               ..
@@ -56,12 +59,23 @@ export default function Article() {
               creative ways to bring greenery into their lives. In this article,
               we'll explore the numerous benefits of cultivating a garden in the
               sky and how it can enhance your quality of life.{" "}
-              <Link to="" className="text-blue-600 text-xl font-bold">
+              <Link
+                to="/articleDetails"
+                className="text-blue-600 text-xl font-bold"
+              >
                 Read More
               </Link>
               ..
             </p>
           </div>
+        </div>
+        {/* add article btn */}
+        <div className="sticky bottom-0 right-0">
+          <Link to="/addArticle">
+            <button className="btn bg-green-600 text-white">
+              + Add Article
+            </button>
+          </Link>
         </div>
       </div>
     </div>

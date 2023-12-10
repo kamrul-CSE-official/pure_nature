@@ -17,6 +17,7 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import UserProfile from "../Pages/UserProfile/UserProfile";
 import AddArticle from "../Pages/AddArticle/AddArticle";
+import ArticleDetails from "../Pages/ArticleDetails/ArticleDetails";
 
 // Define your routes with meaningful names
 const mainRoutes = [
@@ -71,6 +72,14 @@ const loginRoutes = [
     element: (
       <PrivateRoute>
         <AddArticle />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/articleDetails",
+    element: (
+      <PrivateRoute>
+        <ArticleDetails />
       </PrivateRoute>
     ),
   },
