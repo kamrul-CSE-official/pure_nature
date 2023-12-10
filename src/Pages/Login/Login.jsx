@@ -36,6 +36,7 @@ export default function Login() {
           timer: 1500,
         });
         navigation("/");
+        window.location.reload();
       })
       .catch((error) => {
         Swal.fire({
@@ -64,8 +65,8 @@ export default function Login() {
         showConfirmButton: false,
         timer: 1500,
       });
-
       navigation("/");
+      window.location.reload();
     } catch (error) {
       handleApiError(error);
     }

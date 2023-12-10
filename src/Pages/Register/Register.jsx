@@ -40,8 +40,8 @@ export default function Register() {
         showConfirmButton: false,
         timer: 1500,
       });
-
       navigation("/");
+      window.location.reload();
     } catch (error) {
       handleApiError(error);
     }
@@ -66,6 +66,7 @@ export default function Register() {
         timer: 1500,
       });
       navigation("/");
+      window.location.reload();
     } catch (error) {
       handleApiError(error);
     }

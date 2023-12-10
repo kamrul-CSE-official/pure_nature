@@ -36,6 +36,7 @@ export default function AuthProvider({ children }) {
 
   const logOut = () => {
     setLoading(true);
+    setUser(null);
     return signOut(auth);
   };
 
@@ -58,6 +59,7 @@ export default function AuthProvider({ children }) {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      setLoading(false);
       handleUserDataGet(currentUser?.email);
     });
 

@@ -1,6 +1,9 @@
-import { useLoaderData } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 export default function ArticleDetails() {
+  const { user } = useContext(AuthContext);
   const data = useLoaderData();
   return (
     <div>
@@ -17,6 +20,12 @@ export default function ArticleDetails() {
           <h1 className="text-4xl font-bold mb-4">{data?.article?.title}</h1>
           <p className="text-gray-700 mb-4">{data?.article?.content}</p>
         </div>
+        {data?.article?.email == user.email && (
+          <div className="join gap-2">
+            <Link className="btn btn-primary">Edit</Link>
+            <Link className="btn btn-error text-white">Delete</Link>
+          </div>
+        )}
       </div>
     </div>
   );
