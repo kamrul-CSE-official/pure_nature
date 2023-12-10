@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 export default function UserProfile() {
   const { user } = useContext(AuthContext);
-  console.log("Yser: ", user);
   return (
     <div className="container mx-auto mt-10 p-8 bg-white shadow-md rounded-md">
       <h1 className="text-3xl font-semibold mb-6">User Profile</h1>

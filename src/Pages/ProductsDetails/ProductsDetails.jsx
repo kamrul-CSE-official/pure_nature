@@ -3,7 +3,6 @@ import Loading from "../../Components/Share/Loading";
 
 export default function ProductsDetails() {
   const data = useLoaderData();
-  console.log("DATA: ", data);
   if (!data) {
     return <Loading />;
   }
