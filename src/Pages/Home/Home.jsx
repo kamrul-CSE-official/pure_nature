@@ -18,7 +18,6 @@ export default function Home() {
   });
 
   const flowerPlants = data.filter((item) => item.type == "Flower Plant");
-  const seeding = data.filter((item) => item.type == "Seedling");
   const instoments = data.filter(
     (item) => item.type == "Agricultural Instruments"
   );
@@ -27,14 +26,7 @@ export default function Home() {
     AOS.init();
   }, []);
 
-  if (
-    !data ||
-    !flowerPlants ||
-    !instoments ||
-    !seeding ||
-    loading ||
-    error !== null
-  ) {
+  if (!data || !flowerPlants || !instoments || loading || error !== null) {
     return <Loading />;
   }
 
@@ -78,17 +70,6 @@ export default function Home() {
             ))}
           </div>
         </div>
-        {/* Seeding */}
-        <div data-aos="zoom-in-down" data-aos-delay="50" className="md:my-6">
-          <h3 className="text-3xl font-bold">
-            Hybride <span className="text-green-500">Seeding</span> Plants
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-2">
-            {seeding.slice(0, 6).map((item) => (
-              <CardSm key={item._id} item={item} />
-            ))}
-          </div>
-        </div>
         {/* instoments */}
         <div data-aos="zoom-in-down" data-aos-delay="50" className="md:my-6">
           <h3 className="text-3xl font-bold">
@@ -98,6 +79,54 @@ export default function Home() {
             {instoments.slice(0, 6).map((item) => (
               <CardSm key={item._id} item={item} />
             ))}
+          </div>
+        </div>
+        {/* FAQ */}
+        <div>
+          <h2 className="text-xl font-bold my-8">
+            আমাদের সম্পর্কে আপনাদের যত জিঙ্গাসা
+          </h2>
+          <div className="collapse collapse-arrow bg-base-200">
+            <input type="radio" name="my-accordion-2" checked="checked" />
+            <div className="collapse-title text-xl font-medium">
+              কেন আমাদের সারর্বিস নিবেন ?
+            </div>
+            <div className="collapse-content">
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. In ea
+                dolore repellendus sunt quam nihil officia, eaque, eveniet
+                deleniti iure illum quasi maxime iusto hic magni eius laudantium
+                voluptates ipsum.
+              </p>
+            </div>
+          </div>
+          <div className="collapse collapse-arrow bg-base-200">
+            <input type="radio" name="my-accordion-2" />
+            <div className="collapse-title text-xl font-medium">
+              আমারা কেন বেস্ট ?
+            </div>
+            <div className="collapse-content">
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. In ea
+                dolore repellendus sunt quam nihil officia, eaque, eveniet
+                deleniti iure illum quasi maxime iusto hic magni eius laudantium
+                voluptates ipsum.
+              </p>
+            </div>
+          </div>
+          <div className="collapse collapse-arrow bg-base-200">
+            <input type="radio" name="my-accordion-2" />
+            <div className="collapse-title text-xl font-medium">
+              আমারা কেন অন্যদের থেকে আলাদা ?
+            </div>
+            <div className="collapse-content">
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. In ea
+                dolore repellendus sunt quam nihil officia, eaque, eveniet
+                deleniti iure illum quasi maxime iusto hic magni eius laudantium
+                voluptates ipsum.
+              </p>
+            </div>
           </div>
         </div>
       </div>
