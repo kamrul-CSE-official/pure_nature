@@ -24,7 +24,9 @@ export default function AddArticle() {
   };
 
   const validateContent = () => {
-    const wordCount = articleData.content.trim().split(/\s+/).length;
+    const content = articleData.content || ""; // Ensure content is defined
+    const wordCount = content.trim().split(/\s+/).length;
+
     if (wordCount < 300) {
       setContentError("Content must be at least 300 words.");
       return false;
@@ -46,17 +48,29 @@ export default function AddArticle() {
     articleData.email = user.email;
     articleData.authorImg = user.img;
     console.log("Article submitted:", articleData);
-    axios.post(`${import.meta.env.VITE_SERVERapi}/articles`).then((res) => {
-      if (res.insertedId && res.success) {
+    axios
+      .post(`${import.meta.env.VITE_SERVERapi}/articles`, articleData)
+      .then((res) => {
+        if (res.data.insertedId && res.data.success) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Article has been created.",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      })
+      .catch((error) => {
+        // Handle error if the request fails
+        console.error("Error submitting article:", error);
         Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Article has created.",
-          showConfirmButton: false,
-          timer: 1500,
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong! Please try again.",
         });
-      }
-    });
+      });
+
     // Reset form fields
     setArticleData({
       title: "",

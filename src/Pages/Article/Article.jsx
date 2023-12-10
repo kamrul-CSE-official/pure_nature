@@ -1,7 +1,16 @@
 import { Link } from "react-router-dom";
 import article1 from "../../assets/article2.gif";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 export default function Article() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios.get(`${import.meta.env.VITE_SERVERapi}/articles`).then((res) => {
+      setData(res.data);
+    });
+  }, []);
+  console.log(data);
   return (
     <div>
       <div className="relative">
@@ -11,6 +20,11 @@ export default function Article() {
           </h1>
           <p className="text-lg">Discover the Joy of Gardening in the Sky</p>
         </div>
+        {data.map((item) => (
+          <div key={item?.key}>
+            {item?.title} <img src={item?.img} alt="" />
+          </div>
+        ))}
         {/* article-1 */}
         <div className="container mx-auto p-8">
           <div className="max-w-2xl mx-auto">
