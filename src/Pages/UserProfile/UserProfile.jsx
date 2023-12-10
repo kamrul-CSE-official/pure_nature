@@ -44,18 +44,22 @@ export default function UserProfile() {
         <h3 className="text-lg font-semibold mb-4">Your Articles</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Sample order item */}
-          {/* 1 no article */}
-          <div className="bg-gray-100 p-4 rounded-md">
-            <p className="text-gray-600">Order #12345</p>
-            <p className="text-lg font-semibold">Product Name</p>
-            <p className="text-gray-600">Date: 2023-01-01</p>
-          </div>
-          {/* 2 no article */}
-          <div className="bg-gray-100 p-4 rounded-md">
-            <p className="text-gray-600">Order #12345</p>
-            <p className="text-lg font-semibold">Product Name</p>
-            <p className="text-gray-600">Date: 2023-01-01</p>
-          </div>
+          {user?.articles?.map((item) => (
+            <div
+              key={item._id}
+              className="bg-gray-100 p-4 rounded-md hover:border-2 hover:border-s-yellow-300"
+            >
+              <p className="text-gray-600">Article No: {item?._id}</p>
+              <p className="text-lg font-semibold">{item?.title}</p>
+              <p className="text-gray-600">Date: {item?.date}</p>
+              <Link
+                to={`/articleDetails/${item?._id}`}
+                className="text-blue-600 font-bold"
+              >
+                Details
+              </Link>
+            </div>
+          ))}
         </div>
         <Link
           to="/addArticle"

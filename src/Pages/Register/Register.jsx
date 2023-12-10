@@ -65,7 +65,6 @@ export default function Register() {
         showConfirmButton: false,
         timer: 1500,
       });
-
       navigation("/");
     } catch (error) {
       handleApiError(error);

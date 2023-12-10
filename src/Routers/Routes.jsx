@@ -76,12 +76,14 @@ const loginRoutes = [
     ),
   },
   {
-    path: "/articleDetails",
+    path: "/articleDetails/:id",
     element: (
       <PrivateRoute>
         <ArticleDetails />
       </PrivateRoute>
     ),
+    loader: ({ params }) =>
+      fetch(`${import.meta.env.VITE_SERVERapi}/articles/${params.id}`),
   },
 ];
 
