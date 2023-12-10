@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import moment from "moment";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 export default function AddArticle() {
   const { user } = useContext(AuthContext);
@@ -35,16 +37,30 @@ export default function AddArticle() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validate content before submitting
     if (!validateContent()) {
       return;
     }
 
+    articleData.date = moment().format("MMMM D, YYYY");
+    articleData.author = user.name;
+    articleData.email = user.email;
+    articleData.authorImg = user.img;
     console.log("Article submitted:", articleData);
+    axios.post(`${import.meta.env.VITE_SERVERapi}/articles`).then((res) => {
+      if (res.insertedId && res.success) {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Article has created.",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
     // Reset form fields
     setArticleData({
       title: "",
-      content: "",
+      //   content: "",
       img: "",
     });
   };
