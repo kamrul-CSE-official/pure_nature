@@ -10,44 +10,57 @@ import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import { createContext } from "react";
 import auth from "../firebase/firebase.config";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 
 export default function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const googleProvider = new GoogleAuthProvider;
+  const googleProvider = new GoogleAuthProvider();
 
-  //   create User
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  // login user
   const login = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-
-//   login / signUp with google
-const signUpWithGoogle = ()=> {
+  const signUpWithGoogle = () => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
-}
+  };
 
-  // log out
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
   };
 
+  const handleUserDataGet = (email) => {
+    if (email) {
+      axios
+        .get(`http://localhost:5000/users/${email}`)
+        .then((response) => {
+          setUser((prevUser) => ({ ...prevUser, ...response.data }));
+        })
+        .catch((error) => {
+          console.error("Error fetching user data: ", error);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }
+  };
+
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      setLoading(false);
-    //   console.log("Current user: ",user);
+      handleUserDataGet(currentUser?.email);
     });
+
     return () => {
       unSubscribe();
     };
@@ -70,3 +83,4 @@ const signUpWithGoogle = ()=> {
 AuthProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
+

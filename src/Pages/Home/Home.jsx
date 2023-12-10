@@ -17,7 +17,6 @@ export default function Home() {
     api: `${import.meta.env.VITE_SERVERapi}/products`,
   });
 
-  console.log(data);
   const flowerPlants = data.filter((item) => item.type == "Flower Plant");
   const seeding = data.filter((item) => item.type == "Seedling");
   const instoments = data.filter(

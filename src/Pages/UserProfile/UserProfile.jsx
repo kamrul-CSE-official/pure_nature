@@ -4,19 +4,20 @@ import { Link } from "react-router-dom";
 
 export default function UserProfile() {
   const { user } = useContext(AuthContext);
+  console.log("Yser: ", user);
   return (
     <div className="container mx-auto mt-10 p-8 bg-white shadow-md rounded-md">
       <h1 className="text-3xl font-semibold mb-6">User Profile</h1>
       <div className="flex items-center">
         <div className="w-20 h-20 overflow-hidden rounded-full">
           <img
-            src="https://placekitten.com/200/200"
+            src={user.img}
             alt="Profile"
             className="object-cover w-full h-full"
           />
         </div>
         <div className="ml-4">
-          <h2 className="text-xl font-semibold">John Doe</h2>
+          <h2 className="text-xl font-semibold">{user?.name}</h2>
           <p className="text-gray-600">{user?.email}</p>
         </div>
       </div>

@@ -1,5 +1,4 @@
 import { Link, NavLink } from "react-router-dom";
-import { CgProfile } from "react-icons/cg";
 import ThemeChange from "./ThemeChange";
 import logo from "../../assets/logo.png";
 import { useContext } from "react";
@@ -7,7 +6,6 @@ import { AuthContext } from "../../Providers/AuthProvider";
 
 export default function Navbar() {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
   const navLinks = [
     { id: 0, name: "Home", path: "/" },
     { id: 4, name: "Shop", path: "/shop" },
@@ -93,7 +91,11 @@ export default function Navbar() {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full" title="Profile">
-                <CgProfile size={30} />
+                <div className="avatar">
+                  <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                    <img src={user?.img} />
+                  </div>
+                </div>
               </div>
             </div>
             <ul

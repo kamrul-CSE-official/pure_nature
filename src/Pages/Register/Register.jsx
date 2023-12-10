@@ -3,6 +3,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import axios from "axios";
 // import Navbar from "../../Components/Share/Navbar";
 // import Footer from "../../Components/Share/Footer";
 
@@ -13,19 +14,26 @@ export default function Register() {
   const handleSignUp = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
-    // const name = form.get("name");
+    const name = form.get("name");
+    const img = form.get("img");
     const email = form.get("email");
     const password = form.get("password");
+    const user = { name, email, img };
     createUser(email, password)
       .then((res) => {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: `Successfully Created Account ${res?.email}`,
-          showConfirmButton: false,
-          timer: 1500,
+        //${import.meta.env.VITE_SERVERapi}
+        axios.post(`http://localhost:5000/users`, user).then((data) => {
+          if (data?.data) {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: `Successfully Created Account ${res?.email}`,
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            navigation("/");
+          }
         });
-        navigation("/");
       })
       .catch((error) => {
         Swal.fire({
