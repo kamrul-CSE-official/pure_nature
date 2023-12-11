@@ -89,7 +89,7 @@ export default function Home() {
             </div>
           </div>
           {/* item-3 */}
-          <div className="h-[11.5rem] border-4 rounded-xl border-green-100 hover:bg-green-900 duration-500 hover:text-white p-3 m-2">
+          <div className="h-[11.5rem] border-4 rounded-xl border-green-100 hover:bg-green-900 duration-500 hover:text-white px-2 py-3 m-2">
             <div className="flex flex-col items-center justify-center">
               <img width={100} src={item3} alt="item" />
               <h4 className="text-lg font-bold md:font-extrabold">

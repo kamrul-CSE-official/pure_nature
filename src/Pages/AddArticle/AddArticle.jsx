@@ -74,7 +74,7 @@ export default function AddArticle() {
     // Reset form fields
     setArticleData({
       title: "",
-      //   content: "",
+      content: "",
       img: "",
     });
   };
