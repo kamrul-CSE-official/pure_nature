@@ -8,13 +8,13 @@ import moment from "moment";
 export default function UpdateArticle() {
   const data = useLoaderData();
   const { user } = useContext(AuthContext);
-  const [articleData, setArticleData] = useState({
-    title: data?.article?.title,
-    content: data?.article?.content,
-    img: data?.article?.img,
-  });
+  const navigate = useNavigate();
 
-  const navegate = useNavigate();
+  const [articleData, setArticleData] = useState({
+    title: data?.article?.title || "",
+    content: data?.article?.content || "",
+    img: data?.article?.img || "",
+  });
 
   const [contentError, setContentError] = useState("");
 
@@ -45,7 +45,8 @@ export default function UpdateArticle() {
     if (!validateContent()) {
       return;
     }
-    const apiUrl = "process.env.REACT_APP_API_URL";
+
+    const apiUrl = import.meta.env.VITE_SERVERapi;
 
     articleData.date = moment().format("MMMM D, YYYY");
     articleData.author = user.name;
@@ -57,6 +58,7 @@ export default function UpdateArticle() {
         `${apiUrl}/articlesUpdate/${data?.article?._id}`,
         articleData
       );
+
       if (res?.data.acknowledged && res?.data.modifiedCount > 0) {
         Swal.fire({
           position: "top-end",
@@ -66,7 +68,8 @@ export default function UpdateArticle() {
           timer: 1500,
         });
       }
-      navegate(`/articleDetails/${data?.article?._id}`);
+
+      navigate(`/articleDetails/${data?.article?._id}`);
     } catch (error) {
       console.error("Error submitting article:", error);
       const errorMessage =
@@ -78,8 +81,10 @@ export default function UpdateArticle() {
       });
     }
 
+    // Clear the form after submission
     setArticleData({
       title: "",
+      content: "",
       img: "",
     });
   };

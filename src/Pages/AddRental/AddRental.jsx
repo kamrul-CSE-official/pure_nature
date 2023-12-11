@@ -148,6 +148,21 @@ export default function AddRental() {
             </select>
           </div>
 
+          <div className="mb-4">
+            <label
+              htmlFor="place"
+              className="block text-sm font-medium text-gray-600"
+            >
+              Your Mobile Number
+            </label>
+            <input
+              type="text"
+              id="mobile"
+              name="mobile"
+              className="mt-1 p-2 border rounded-md w-full"
+            />
+          </div>
+
           {/* Add other form fields as needed */}
 
           <div className="mt-6">
