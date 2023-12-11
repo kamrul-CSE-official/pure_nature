@@ -11,6 +11,10 @@ import Loading from "../../Components/Share/Loading";
 import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import item1 from "../../assets/ui-chat.svg";
+import item2 from "../../assets/truck-loaded.svg";
+import item3 from "../../assets/wheat.svg";
+import item4 from "../../assets/lemon.svg";
 
 export default function Home() {
   const [selectedAccordion, setSelectedAccordion] = useState(1);
@@ -64,6 +68,37 @@ export default function Home() {
         </Carousel>
       </div>
       <div>
+        {/* service types */}
+        <div className="flex items-center justify-center">
+          {/* item-1 */}
+          <div className="border-4 rounded-xl border-green-100 hover:bg-green-900 duration-500 hover:text-white p-3 m-2">
+            <div className="flex flex-col items-center justify-center">
+              <img width={100} src={item1} alt="item" />
+              <h4 className="text-lg font-extrabold">24/7 Support</h4>
+            </div>
+          </div>
+          {/* item-2 */}
+          <div className="border-4 rounded-xl border-green-100 hover:bg-green-900 duration-500 hover:text-white p-3 m-2">
+            <div className="flex flex-col items-center justify-center">
+              <img width={100} src={item2} alt="item" />
+              <h4 className="text-lg font-extrabold">Free Shipping</h4>
+            </div>
+          </div>
+          {/* item-3 */}
+          <div className="border-4 rounded-xl border-green-100 hover:bg-green-900 duration-500 hover:text-white p-3 m-2">
+            <div className="flex flex-col items-center justify-center">
+              <img width={100} src={item3} alt="item" />
+              <h4 className="text-lg font-extrabold">Fresh & Healthy</h4>
+            </div>
+          </div>
+          {/* item-4 */}
+          <div className="border-4 rounded-xl border-green-100 hover:bg-green-900 duration-500 hover:text-white p-3 m-2">
+            <div className="flex flex-col items-center justify-center">
+              <img width={100} src={item4} alt="item" />
+              <h4 className="text-lg font-extrabold">From Our Nursery</h4>
+            </div>
+          </div>
+        </div>
         {/* Flower plants */}
         <div className="md:my-6">
           <h3 className="text-3xl font-bold">
