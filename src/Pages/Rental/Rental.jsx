@@ -16,7 +16,7 @@ export default function Rental() {
         <p className="text-lg">A Visual Delight of Greenery and Beauty</p>
       </div>
 
-      <div className="container mx-auto p-8">
+      <div className="container mx-auto p-8 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {galleryImages.map((imageUrl, index) => (
             <div key={index} className="mb-4">
@@ -35,6 +35,14 @@ export default function Rental() {
               </div>
             </div>
           ))}
+        </div>
+        {/* add article btn */}
+        <div className="sticky bottom-0 right-0">
+          <Link to="/addRental">
+            <button className="btn bg-green-600 text-white">
+              + Add Rental
+            </button>
+          </Link>
         </div>
       </div>
     </div>

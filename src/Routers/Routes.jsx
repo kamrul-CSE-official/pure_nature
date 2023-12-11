@@ -19,6 +19,7 @@ import UserProfile from "../Pages/UserProfile/UserProfile";
 import AddArticle from "../Pages/AddArticle/AddArticle";
 import ArticleDetails from "../Pages/ArticleDetails/ArticleDetails";
 import UpdateArticle from "../Pages/UpdateArticle/UpdateArticle";
+import AddRental from "../Pages/AddRental/AddRental";
 
 // Define your routes with meaningful names
 const mainRoutes = [
@@ -73,6 +74,14 @@ const loginRoutes = [
     element: (
       <PrivateRoute>
         <AddArticle />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/addRental",
+    element: (
+      <PrivateRoute>
+        <AddRental />
       </PrivateRoute>
     ),
   },
