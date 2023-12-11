@@ -67,7 +67,7 @@ export default function AddRental() {
 
   return (
     <div className="container mx-auto mt-8">
-      <div className="bg-gray-200 p-6 rounded-md">
+      <div className="bg-green-200 p-6 rounded-md">
         <h1 className="text-3xl font-semibold mb-4">Add Rental</h1>
 
         <form>
