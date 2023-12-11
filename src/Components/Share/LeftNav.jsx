@@ -15,7 +15,7 @@ export default function LeftNav() {
         <Link
           onClick={() => setClick("chara")}
           className={`btn border-2 border-green-400 md:w-full hover:bg-green-400 ${
-            click === "chara" && "bg-green-400"
+            click === "chara" ? "bg-green-400" : "bg-green-100"
           }`}
         >
           চারা গাছ
@@ -23,7 +23,7 @@ export default function LeftNav() {
         <Link
           onClick={() => setClick("tup")}
           className={`btn border-2 border-green-400 md:w-full hover:bg-green-400 ${
-            click === "tup" && "bg-green-400"
+            click === "tup" ? "bg-green-400" : "bg-green-100"
           }`}
         >
           টপ
@@ -31,7 +31,7 @@ export default function LeftNav() {
         <Link
           onClick={() => setClick("shar")}
           className={`btn border-2 border-green-400 md:w-full hover:bg-green-400 ${
-            click === "shar" && "bg-green-400"
+            click === "shar" ? "bg-green-400" : "bg-green-100"
           }`}
         >
           সার
@@ -39,7 +39,7 @@ export default function LeftNav() {
         <Link
           onClick={() => setClick("bij")}
           className={`btn border-2 border-green-400 md:w-full hover:bg-green-400 ${
-            click === "bij" && "bg-green-400"
+            click === "bij" ? "bg-green-400" : "bg-green-100"
           }`}
         >
           বীজ

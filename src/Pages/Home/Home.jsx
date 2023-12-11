@@ -134,7 +134,7 @@ export default function Home() {
           <h2 className="text-xl font-bold my-8">
             আমাদের সম্পর্কে আপনাদের যত জিঙ্গাসা
           </h2>
-          <div className="collapse collapse-arrow bg-base-200">
+          <div className="collapse collapse-arrow bg-green-200">
             <input
               type="radio"
               name="my-accordion-2"
@@ -154,7 +154,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="collapse collapse-arrow bg-base-200">
+          <div className="collapse collapse-arrow bg-green-200">
             <input
               type="radio"
               name="my-accordion-2"
@@ -174,7 +174,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="collapse collapse-arrow bg-base-200">
+          <div className="collapse collapse-arrow bg-green-200">
             <input
               type="radio"
               name="my-accordion-2"
