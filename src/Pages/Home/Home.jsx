@@ -69,33 +69,41 @@ export default function Home() {
       </div>
       <div>
         {/* service types */}
-        <div className="flex items-center justify-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 items-center justify-center w-full">
           {/* item-1 */}
-          <div className="border-4 rounded-xl border-green-100 hover:bg-green-900 duration-500 hover:text-white p-3 m-2">
+          <div className="h-[11.5rem] border-4 rounded-xl border-green-100 hover:bg-green-900 duration-500 hover:text-white p-3 m-2">
             <div className="flex flex-col items-center justify-center">
               <img width={100} src={item1} alt="item" />
-              <h4 className="text-lg font-extrabold">24/7 Support</h4>
+              <h4 className="text-lg font-bold md:font-extrabold">
+                24/7 Support
+              </h4>
             </div>
           </div>
           {/* item-2 */}
-          <div className="border-4 rounded-xl border-green-100 hover:bg-green-900 duration-500 hover:text-white p-3 m-2">
+          <div className="h-[11.5rem] border-4 rounded-xl border-green-100 hover:bg-green-900 duration-500 hover:text-white p-3 m-2">
             <div className="flex flex-col items-center justify-center">
               <img width={100} src={item2} alt="item" />
-              <h4 className="text-lg font-extrabold">Free Shipping</h4>
+              <h4 className="text-lg font-bold md:font-extrabold">
+                Free Shipping
+              </h4>
             </div>
           </div>
           {/* item-3 */}
-          <div className="border-4 rounded-xl border-green-100 hover:bg-green-900 duration-500 hover:text-white p-3 m-2">
+          <div className="h-[11.5rem] border-4 rounded-xl border-green-100 hover:bg-green-900 duration-500 hover:text-white p-3 m-2">
             <div className="flex flex-col items-center justify-center">
               <img width={100} src={item3} alt="item" />
-              <h4 className="text-lg font-extrabold">Fresh & Healthy</h4>
+              <h4 className="text-lg font-bold md:font-extrabold">
+                Fresh & Healthy
+              </h4>
             </div>
           </div>
           {/* item-4 */}
-          <div className="border-4 rounded-xl border-green-100 hover:bg-green-900 duration-500 hover:text-white p-3 m-2">
+          <div className="h-[11.5rem] border-4 rounded-xl border-green-100 hover:bg-green-900 duration-500 hover:text-white p-3 m-2">
             <div className="flex flex-col items-center justify-center">
               <img width={100} src={item4} alt="item" />
-              <h4 className="text-lg font-extrabold">From Our Nursery</h4>
+              <h4 className="text-lg font-bold md:font-extrabold">
+                Our Nursery
+              </h4>
             </div>
           </div>
         </div>
