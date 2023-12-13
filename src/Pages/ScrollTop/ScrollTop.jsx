@@ -25,7 +25,7 @@ const ScrollTop = () => {
     <div className={`${scrollValue < 550 ? "hidden" : "block"}`}>
       <button
         onClick={handleScrollTop}
-        className="btn btn-circle bg-green-600 text-white font-extrabold"
+        className="btn btn-circle bg-green-600 text-white font-extrabold hover:bg-green-400"
         title="Scroll top"
       >
         <FaArrowUp size={20} />
