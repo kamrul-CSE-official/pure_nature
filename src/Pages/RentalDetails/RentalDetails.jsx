@@ -16,6 +16,34 @@ export default function RentalDetails() {
             Hanging Flower Garden
             <div className="badge badge-secondary">৳ 10,000 per day</div>
           </h2>
+          <div className="rating">
+            <input
+              type="radio"
+              name="rating-5"
+              className="mask mask-star-2 bg-orange-400"
+            />
+            <input
+              type="radio"
+              name="rating-5"
+              className="mask mask-star-2 bg-orange-400"
+              checked
+            />
+            <input
+              type="radio"
+              name="rating-5"
+              className="mask mask-star-2 bg-orange-400"
+            />
+            <input
+              type="radio"
+              name="rating-5"
+              className="mask mask-star-2 bg-orange-400"
+            />
+            <input
+              type="radio"
+              name="rating-5"
+              className="mask mask-star-2 bg-orange-400"
+            />
+          </div>
           <p>
             If a dog chews shoes, whose shoes does he choose? Lorem ipsum, dolor
             sit amet consectetur adipisicing elit. Atque ipsam veritatis

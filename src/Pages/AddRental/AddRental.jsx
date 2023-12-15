@@ -67,7 +67,7 @@ export default function AddRental() {
 
   return (
     <div className="container mx-auto mt-8">
-      <div className="bg-gray-200 p-6 rounded-md">
+      <div className="bg-green-200 p-6 rounded-md">
         <h1 className="text-3xl font-semibold mb-4">Add Rental</h1>
 
         <form>
@@ -146,6 +146,21 @@ export default function AddRental() {
                 <option key={i}>{name}</option>
               ))}
             </select>
+          </div>
+
+          <div className="mb-4">
+            <label
+              htmlFor="place"
+              className="block text-sm font-medium text-gray-600"
+            >
+              Your Mobile Number
+            </label>
+            <input
+              type="text"
+              id="mobile"
+              name="mobile"
+              className="mt-1 p-2 border rounded-md w-full"
+            />
           </div>
 
           {/* Add other form fields as needed */}

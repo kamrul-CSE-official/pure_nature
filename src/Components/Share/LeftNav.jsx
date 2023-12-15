@@ -1,5 +1,9 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { FaTree } from "react-icons/fa";
+import { PiPottedPlantFill } from "react-icons/pi";
+import { GiPowder } from "react-icons/gi";
+import { GiPlantSeed } from "react-icons/gi";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 export default function LeftNav() {
@@ -15,34 +19,34 @@ export default function LeftNav() {
         <Link
           onClick={() => setClick("chara")}
           className={`btn border-2 border-green-400 md:w-full hover:bg-green-400 ${
-            click === "chara" && "bg-green-400"
+            click === "chara" ? "bg-green-400" : "bg-green-100"
           }`}
         >
-          চারা গাছ
+          <FaTree color="green" size={20} /> চারা গাছ
         </Link>
         <Link
           onClick={() => setClick("tup")}
           className={`btn border-2 border-green-400 md:w-full hover:bg-green-400 ${
-            click === "tup" && "bg-green-400"
+            click === "tup" ? "bg-green-400" : "bg-green-100"
           }`}
         >
-          টপ
+          <PiPottedPlantFill color="green" size={20} /> টব
         </Link>
         <Link
           onClick={() => setClick("shar")}
           className={`btn border-2 border-green-400 md:w-full hover:bg-green-400 ${
-            click === "shar" && "bg-green-400"
+            click === "shar" ? "bg-green-400" : "bg-green-100"
           }`}
         >
-          সার
+          <GiPowder color="green" size={20} /> সার
         </Link>
         <Link
           onClick={() => setClick("bij")}
           className={`btn border-2 border-green-400 md:w-full hover:bg-green-400 ${
-            click === "bij" && "bg-green-400"
+            click === "bij" ? "bg-green-400" : "bg-green-100"
           }`}
         >
-          বীজ
+          <GiPlantSeed color="green" size={20} /> বীজ
         </Link>
         {user && (
           <div className="container mx-auto text-xl font-bold text-center my-2">
