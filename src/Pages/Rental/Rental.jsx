@@ -27,6 +27,35 @@ export default function Rental() {
               />
               <div className="mt-2 flex flex-col justify-between items-center">
                 <p className="text-gray-700">Rooftop Garden {index + 1}</p>
+                {/* rating */}
+                <div className="rating rating-xs my-6">
+                  <input
+                    type="radio"
+                    name="rating-5"
+                    className="mask mask-star-2 bg-orange-400"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-5"
+                    className="mask mask-star-2 bg-orange-400"
+                    checked
+                  />
+                  <input
+                    type="radio"
+                    name="rating-5"
+                    className="mask mask-star-2 bg-orange-400"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-5"
+                    className="mask mask-star-2 bg-orange-400"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-5"
+                    className="mask mask-star-2 bg-orange-400"
+                  />
+                </div>
                 <Link to="/rentalDetails">
                   <button className="btn bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">
                     See Details
