@@ -22,6 +22,35 @@ export default function ProductsDetails() {
           </div>
 
           <h2 className="card-title">{data.name}</h2>
+          {/* md */}
+          <div className="rating rating-md">
+            <input
+              type="radio"
+              name="rating-7"
+              className="mask mask-star-2 bg-orange-400"
+            />
+            <input
+              type="radio"
+              name="rating-7"
+              className="mask mask-star-2 bg-orange-400"
+              checked
+            />
+            <input
+              type="radio"
+              name="rating-7"
+              className="mask mask-star-2 bg-orange-400"
+            />
+            <input
+              type="radio"
+              name="rating-7"
+              className="mask mask-star-2 bg-orange-400"
+            />
+            <input
+              type="radio"
+              name="rating-7"
+              className="mask mask-star-2 bg-orange-400"
+            />
+          </div>
           <p>{data.details}</p>
           <ul className="list-decimal font-bold">
             <li>Supplier: {data.supplier}</li>
