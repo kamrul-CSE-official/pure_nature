@@ -1,7 +1,6 @@
 // import { Helmet } from "react-helmet-async";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-// import logo from "../../assets/logo.png";
 import banner1 from "../../assets/Banner1.gif";
 import banner2 from "../../assets/Banner2.gif";
 import banner3 from "../../assets/Banner3.gif";
