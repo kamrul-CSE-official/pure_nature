@@ -68,7 +68,7 @@ export default function UpdateRental() {
         rentalData
       );
 
-      console.log("Done:", res);
+      console.log(`Done from ${data?.rental?._id}: `, res);
 
       if (res.data.insertedId && res.data.success) {
         Swal.fire({
