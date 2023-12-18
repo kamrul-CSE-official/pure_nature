@@ -1,27 +1,25 @@
-import axios from "axios";
-import moment from "moment";
 import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import axios from "axios";
+import moment from "moment";
 import Swal from "sweetalert2";
 
 export default function UpdateRental() {
   const { user } = useContext(AuthContext);
   const data = useLoaderData();
-  console.log(data.rental);
 
   const [rentalData, setRentalData] = useState({
-    title: "",
-    content: "",
-    img: "",
-    place: "",
-    price: "",
+    title: data?.rental?.title || "",
+    content: data?.rental?.content || "",
+    img: data?.rental?.img || "",
+    place: data?.rental?.place || "",
+    price: data?.rental?.price || "",
   });
 
   const [contentError, setContentError] = useState("");
 
   const handleInputChange = (e) => {
-    e.preventDefault();
     const { name, value } = e.target;
     setRentalData((prevData) => ({
       ...prevData,
@@ -42,7 +40,17 @@ export default function UpdateRental() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const clearFormFields = () => {
+    setRentalData({
+      title: "",
+      content: "",
+      img: "",
+      place: "",
+      price: "",
+    });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!validateContent()) {
@@ -54,31 +62,36 @@ export default function UpdateRental() {
     rentalData.email = user.email;
     rentalData.ownerImg = user.img;
 
-    axios
-      .patch(`${import.meta.env.VITE_SERVERapi}/rental`, rentalData)
-      .then((res) => {
-        if (res.data.insertedId && res.data.success) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Article has been created.",
-            showConfirmButton: false,
-            timer: 1500,
-          });
+    try {
+      const res = await axios.patch(
+        `${import.meta.env.VITE_SERVERapi}/rental/${data?.rental?._id}`,
+        rentalData
+      );
 
-          // Clear form fields
-          e.target.reset();
-        }
-      })
-      .catch((error) => {
-        console.error("Error submitting article:", error);
+      console.log("Done:", res);
+
+      if (res.data.insertedId && res.data.success) {
         Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Something went wrong! Please try again.",
+          position: "top-end",
+          icon: "success",
+          title: "Article has been updated.",
+          showConfirmButton: false,
+          timer: 1500,
         });
+
+        // Clear form fields
+        clearFormFields();
+      }
+    } catch (error) {
+      console.error("Error updating article:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong! Please try again.",
       });
+    }
   };
+
   const districts = [
     "Barisal",
     "Bhola",
