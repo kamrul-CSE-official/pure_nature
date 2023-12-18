@@ -20,6 +20,7 @@ import AddArticle from "../Pages/AddArticle/AddArticle";
 import ArticleDetails from "../Pages/ArticleDetails/ArticleDetails";
 import UpdateArticle from "../Pages/UpdateArticle/UpdateArticle";
 import AddRental from "../Pages/AddRental/AddRental";
+import UpdateRental from "../Pages/UpdateRental/UpdateRental";
 
 // Define your routes with meaningful names
 const mainRoutes = [
@@ -38,6 +39,16 @@ const mainRoutes = [
     element: (
       <PrivateRoute>
         <RentalDetails />
+      </PrivateRoute>
+    ),
+    loader: ({ params }) =>
+      fetch(`${import.meta.env.VITE_SERVERapi}/rental/${params.id}`),
+  },
+  {
+    path: "/articleUpdate/:id",
+    element: (
+      <PrivateRoute>
+        <UpdateRental />
       </PrivateRoute>
     ),
     loader: ({ params }) =>
