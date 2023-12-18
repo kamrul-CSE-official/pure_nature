@@ -25,17 +25,23 @@ import AddRental from "../Pages/AddRental/AddRental";
 const mainRoutes = [
   { path: "/", element: <Home /> },
   { path: "/shop", element: <Shop /> },
-  { path: "/rental", element: <Rental /> },
+  {
+    path: "/rental",
+    element: <Rental />,
+    loader: () => fetch(`${import.meta.env.VITE_SERVERapi}/rental`),
+  },
   { path: "/design", element: <Design /> },
   { path: "/article", element: <Article /> },
   { path: "/gallery", element: <Gallery /> },
   {
-    path: "/rentalDetails",
+    path: "/rentalDetails/:id",
     element: (
       <PrivateRoute>
         <RentalDetails />
       </PrivateRoute>
     ),
+    loader: ({ params }) =>
+      fetch(`${import.meta.env.VITE_SERVERapi}/rental/${params.id}`),
   },
   {
     path: "/productsDetails/:id",

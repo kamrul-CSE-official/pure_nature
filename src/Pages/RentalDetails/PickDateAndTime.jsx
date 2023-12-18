@@ -23,7 +23,7 @@ export default function PickDateAndTime() {
 
         {/* Display the selected date/time */}
         <p className="text-gray-700">
-          Selected Date and Time: {selectedDate.toString()}
+          Selected Date and Time: {selectedDate?.toString()}
         </p>
         <button className="btn my-2 bg-green-500 text-white mx-auto">
           Booked

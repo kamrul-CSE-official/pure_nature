@@ -1,4 +1,81 @@
+import axios from "axios";
+import moment from "moment";
+import { useContext, useState } from "react";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../Providers/AuthProvider";
+
 export default function AddRental() {
+  const { user } = useContext(AuthContext);
+
+  const [rentalData, setRentalData] = useState({
+    title: "",
+    content: "",
+    img: "",
+    place: "",
+    price: "",
+  });
+
+  const [contentError, setContentError] = useState("");
+
+  const handleInputChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setRentalData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const validateContent = () => {
+    const content = rentalData.content || "";
+    const wordCount = content.trim().split(/\s+/).length;
+
+    if (wordCount < 80) {
+      setContentError("Content must be at least 80 words.");
+      return false;
+    } else {
+      setContentError("");
+      return true;
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!validateContent()) {
+      return;
+    }
+
+    rentalData.date = moment().format("MMMM D, YYYY");
+    rentalData.ownerName = user.name;
+    rentalData.email = user.email;
+    rentalData.ownerImg = user.img;
+
+    axios
+      .post(`${import.meta.env.VITE_SERVERapi}/rental`, rentalData)
+      .then((res) => {
+        if (res.data.insertedId && res.data.success) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Article has been created.",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+
+          // Clear form fields
+          e.target.reset();
+        }
+      })
+      .catch((error) => {
+        console.error("Error submitting article:", error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong! Please try again.",
+        });
+      });
+  };
   const districts = [
     "Barisal",
     "Bhola",
@@ -64,13 +141,12 @@ export default function AddRental() {
     "Sunamganj",
     "Sylhet",
   ];
-
   return (
     <div className="container mx-auto mt-8">
       <div className="bg-gray-200 p-6 rounded-md">
         <h1 className="text-3xl font-semibold mb-4">Add Rental</h1>
 
-        <form>
+        <form onSubmit={handleSubmit} className="mx-auto">
           <div className="mb-4">
             <label
               htmlFor="title"
@@ -82,82 +158,96 @@ export default function AddRental() {
               type="text"
               id="title"
               name="title"
-              className="mt-1 p-2 border rounded-md w-full"
+              value={rentalData.title}
+              onChange={handleInputChange}
+              className="mt-1 p-2 border rounded w-full input input-bordered input-accent"
+              required
             />
           </div>
-
+          <div className="mb-4">
+            <label
+              htmlFor="content"
+              className="block text-sm font-medium text-gray-600"
+            >
+              Content
+            </label>
+            <textarea
+              id="content"
+              name="content"
+              value={rentalData.content}
+              onChange={handleInputChange}
+              rows="5"
+              className={`textarea textarea-accent w-full ${
+                contentError ? "border-red-500" : ""
+              }`}
+              required
+            ></textarea>
+            {contentError && <p className="text-red-500">{contentError}</p>}
+          </div>
           <div className="mb-4">
             <label
               htmlFor="img"
               className="block text-sm font-medium text-gray-600"
             >
-              Banner URL
+              Image URL
             </label>
             <input
               type="text"
               id="img"
               name="img"
-              className="mt-1 p-2 border rounded-md w-full"
+              value={rentalData.img}
+              required
+              onChange={handleInputChange}
+              className="mt-1 p-2 border rounded w-full input input-bordered input-accent text-area"
             />
           </div>
-
           <div className="mb-4">
             <label
               htmlFor="price"
               className="block text-sm font-medium text-gray-600"
             >
-              Price per Day
+              Price Per Day
             </label>
             <input
               type="number"
               id="price"
               name="price"
-              className="mt-1 p-2 border rounded-md w-full"
+              required
+              value={rentalData.price}
+              onChange={handleInputChange}
+              className="mt-1 p-2 border rounded w-full input input-bordered input-accent text-area"
             />
           </div>
-
           <div className="mb-4">
             <label
-              htmlFor="details"
+              htmlFor="districts"
               className="block text-sm font-medium text-gray-600"
             >
-              Details
+              Place / Location
             </label>
-            <input
-              type="text"
-              id="details"
-              name="details"
-              className="mt-1 p-8 border rounded-md w-full"
-            />
-          </div>
-
-          <div className="mb-4">
-            <label
-              htmlFor="place"
-              className="block text-sm font-medium text-gray-600"
+            <select
+              className="select w-full"
+              name="place"
+              onChange={handleInputChange}
+              defaultValue=""
+              required
             >
-              Place
-            </label>
-            <select className="select w-full">
-              <option disabled selected>
-                Pick a district
+              <option disabled value="">
+                Pick your favorite district
               </option>
               {districts.map((name, i) => (
-                <option key={i}>{name}</option>
+                <option key={i} value={name}>
+                  {name}
+                </option>
               ))}
             </select>
           </div>
-
-          {/* Add other form fields as needed */}
-
-          <div className="mt-6">
-            <button
-              type="submit"
-              className="bg-blue-500 text-white px-4 py-2 rounded-md"
-            >
-              Submit
-            </button>
-          </div>
+          <button
+            type="submit"
+            className="bg-green-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+          >
+            Submit Article
+          </button>
         </form>
       </div>
     </div>
