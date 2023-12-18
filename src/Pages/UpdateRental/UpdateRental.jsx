@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import axios from "axios";
 import moment from "moment";
@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 export default function UpdateRental() {
   const { user } = useContext(AuthContext);
   const data = useLoaderData();
+  const navagate = useNavigate();
 
   const [rentalData, setRentalData] = useState({
     title: data?.rental?.title || "",
@@ -68,9 +69,7 @@ export default function UpdateRental() {
         rentalData
       );
 
-      console.log(`Done from ${data?.rental?._id}: `, res);
-
-      if (res.data.insertedId && res.data.success) {
+      if (res.data.success) {
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -78,9 +77,9 @@ export default function UpdateRental() {
           showConfirmButton: false,
           timer: 1500,
         });
-
         // Clear form fields
         clearFormFields();
+        navagate("/rental");
       }
     } catch (error) {
       console.error("Error updating article:", error);

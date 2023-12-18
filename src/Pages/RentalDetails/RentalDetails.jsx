@@ -11,7 +11,6 @@ export default function RentalDetails() {
   const navigation = useNavigate();
 
   const data = useLoaderData();
-  console.log(data.rental);
   if (!data.rental) {
     <Loading />;
   }
