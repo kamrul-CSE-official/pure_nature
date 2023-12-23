@@ -4,7 +4,6 @@ import banner1 from "../../assets/Banner1.gif";
 import banner2 from "../../assets/Banner2.gif";
 import banner3 from "../../assets/Banner3.gif";
 import DataFetch from "../../Hooks/DataFetch";
-import CardSm from "./CardSm";
 import Loading from "../../Components/Share/Loading";
 import { useEffect, useState } from "react";
 import AOS from "aos";
@@ -13,6 +12,7 @@ import item1 from "../../assets/ui-chat.svg";
 import item2 from "../../assets/truck-loaded.svg";
 import item3 from "../../assets/wheat.svg";
 import item4 from "../../assets/lemon.svg";
+import CardSm from "../../Components/Share/cards/CardSm";
 
 export default function Home() {
   const [selectedAccordion, setSelectedAccordion] = useState(1);
@@ -56,49 +56,47 @@ export default function Home() {
           </div>
         </Carousel>
       </div>
+      {/* service types */}
+      <div className="grid grid-cols-2 md:grid-cols-4 items-center justify-center w-full">
+        {/* item-1 */}
+        <div className="h-[11.5rem] border-4 rounded-xl border-green-100 hover:bg-green-900 duration-500 hover:text-white p-3 m-2">
+          <div className="flex flex-col items-center justify-center">
+            <img width={100} src={item1} alt="item" />
+            <h4 className="text-lg font-bold md:font-extrabold">
+              24/7 Support
+            </h4>
+          </div>
+        </div>
+        {/* item-2 */}
+        <div className="h-[11.5rem] border-4 rounded-xl border-green-100 hover:bg-green-900 duration-500 hover:text-white p-3 m-2">
+          <div className="flex flex-col items-center justify-center">
+            <img width={100} src={item2} alt="item" />
+            <h4 className="text-lg font-bold md:font-extrabold">
+              Free Shipping
+            </h4>
+          </div>
+        </div>
+        {/* item-3 */}
+        <div className="h-[11.5rem] border-4 rounded-xl border-green-100 hover:bg-green-900 duration-500 hover:text-white px-2 py-3 m-2">
+          <div className="flex flex-col items-center justify-center">
+            <img width={100} src={item3} alt="item" />
+            <h4 className="text-lg font-bold md:font-extrabold">
+              Fresh & Healthy
+            </h4>
+          </div>
+        </div>
+        {/* item-4 */}
+        <div className="h-[11.5rem] border-4 rounded-xl border-green-100 hover:bg-green-900 duration-500 hover:text-white p-3 m-2">
+          <div className="flex flex-col items-center justify-center">
+            <img width={100} src={item4} alt="item" />
+            <h4 className="text-lg font-bold md:font-extrabold">Our Nursery</h4>
+          </div>
+        </div>
+      </div>
       {!data || !flowerPlants || !instoments || loading || error !== null ? (
         <Loading />
       ) : (
         <div>
-          {/* service types */}
-          <div className="grid grid-cols-2 md:grid-cols-4 items-center justify-center w-full">
-            {/* item-1 */}
-            <div className="h-[11.5rem] border-4 rounded-xl border-green-100 hover:bg-green-900 duration-500 hover:text-white p-3 m-2">
-              <div className="flex flex-col items-center justify-center">
-                <img width={100} src={item1} alt="item" />
-                <h4 className="text-lg font-bold md:font-extrabold">
-                  24/7 Support
-                </h4>
-              </div>
-            </div>
-            {/* item-2 */}
-            <div className="h-[11.5rem] border-4 rounded-xl border-green-100 hover:bg-green-900 duration-500 hover:text-white p-3 m-2">
-              <div className="flex flex-col items-center justify-center">
-                <img width={100} src={item2} alt="item" />
-                <h4 className="text-lg font-bold md:font-extrabold">
-                  Free Shipping
-                </h4>
-              </div>
-            </div>
-            {/* item-3 */}
-            <div className="h-[11.5rem] border-4 rounded-xl border-green-100 hover:bg-green-900 duration-500 hover:text-white px-2 py-3 m-2">
-              <div className="flex flex-col items-center justify-center">
-                <img width={100} src={item3} alt="item" />
-                <h4 className="text-lg font-bold md:font-extrabold">
-                  Fresh & Healthy
-                </h4>
-              </div>
-            </div>
-            {/* item-4 */}
-            <div className="h-[11.5rem] border-4 rounded-xl border-green-100 hover:bg-green-900 duration-500 hover:text-white p-3 m-2">
-              <div className="flex flex-col items-center justify-center">
-                <img width={100} src={item4} alt="item" />
-                <h4 className="text-lg font-bold md:font-extrabold">
-                  Our Nursery
-                </h4>
-              </div>
-            </div>
-          </div>
           {/* Flower plants */}
           <div className="md:my-6">
             <h3 className="text-3xl font-bold">

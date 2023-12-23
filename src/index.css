@@ -1,7 +1,11 @@
+html {
+  scroll-behavior: smooth;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.active{
-    border-bottom: 2px solid white;
+.active {
+  border-bottom: 2px solid white;
 }
