@@ -1,10 +1,10 @@
 export default function Loading() {
   return (
-    <div className="container mx-auto">
-      <span className="loading loading-spinner loading-xs"></span>
-      <span className="loading loading-spinner loading-sm"></span>
-      <span className="loading loading-spinner loading-md"></span>
-      <span className="loading loading-spinner loading-lg"></span>
+    <div className="flex items-center justify-center text-center flex-col">
+      <h4 className="font-extralight text-2xl">Loading</h4>
+      <div className="container mx-auto">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
     </div>
   );
 }
