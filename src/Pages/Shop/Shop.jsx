@@ -47,7 +47,9 @@ export default function Shop() {
 
   return (
     <div>
-      {data || !loading || error == null ? (
+      {!data || !flowerPlants || loading || error !== null ? (
+        <Loading />
+      ) : (
         <div>
           <div id="chara">
             <h2 className="text-xl font-bold my-5 border-b-4 border-green-500 pb-4">
@@ -92,8 +94,6 @@ export default function Shop() {
             </Carousel>
           </div>
         </div>
-      ) : (
-        <Loading />
       )}
     </div>
   );
