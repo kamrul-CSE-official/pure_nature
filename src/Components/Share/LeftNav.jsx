@@ -13,6 +13,7 @@ export default function LeftNav() {
       </h3>
       <ul className="flex flex-row flex-wrap md:flex-col items-center justify-center gap-5 mg:my-5 md:my-10 md:p-2">
         <Link
+          to="/shop#chara"
           onClick={() => setClick("chara")}
           className={`btn border-2 border-green-400 md:w-full hover:bg-green-400 ${
             click === "chara" && "bg-green-400"
@@ -21,6 +22,7 @@ export default function LeftNav() {
           চারা গাছ
         </Link>
         <Link
+          to="/shop#top"
           onClick={() => setClick("tup")}
           className={`btn border-2 border-green-400 md:w-full hover:bg-green-400 ${
             click === "tup" && "bg-green-400"
@@ -29,6 +31,7 @@ export default function LeftNav() {
           টপ
         </Link>
         <Link
+          to="/shop#shar"
           onClick={() => setClick("shar")}
           className={`btn border-2 border-green-400 md:w-full hover:bg-green-400 ${
             click === "shar" && "bg-green-400"
@@ -37,6 +40,7 @@ export default function LeftNav() {
           সার
         </Link>
         <Link
+          to="/shop#bizz"
           onClick={() => setClick("bij")}
           className={`btn border-2 border-green-400 md:w-full hover:bg-green-400 ${
             click === "bij" && "bg-green-400"
