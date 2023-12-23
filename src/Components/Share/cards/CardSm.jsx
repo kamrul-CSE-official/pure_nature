@@ -52,7 +52,7 @@ export default function CardSm({ item }) {
 
           <Link to={`/productsDetails/${_id}`}>
             {" "}
-            <button className="btn btn-outline hover:bg-green-600">
+            <button className="btn btn-outline hover:bg-green-600 px-1 py-2">
               See Details
             </button>
           </Link>
