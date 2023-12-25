@@ -3,7 +3,7 @@ export default function About() {
     <div>
       <div className="bg-green-500 text-white py-20 text-center">
         <h1 className="text-4xl font-bold mb-4">
-          Welcome to Our "Pure Nature" Web Site
+          Welcome to Our "Rooftop Garden" Web Site
         </h1>
         <p className="text-lg">
           Discover the Beauty of Nature in the Heart of the City
@@ -13,7 +13,7 @@ export default function About() {
       <div className="container mx-auto p-8">
         <h2 className="text-3xl font-semibold mb-4">About Us</h2>
         <p className="text-gray-700 leading-relaxed">
-          Welcome to [Your Roof Garden Name], where we blend urban living with
+          Welcome to Rooftop Garden, where we blend urban living with
           the tranquility of nature. Our rooftop oasis provides a serene escape
           from the hustle and bustle of city life. Whether you're a gardening
           enthusiast or simply looking for a peaceful retreat, our roof garden
@@ -35,7 +35,7 @@ export default function About() {
             ></path>
           </svg>
           <span className="text-gray-700">
-            <span className="text-green-600">Name: </span>Taposh Chandra Das
+            <span className="text-green-600">Name: </span>Taposh Chandra Dash
           </span>
         </div>
         <div className="flex items-center space-x-4 mt-2">
@@ -54,7 +54,7 @@ export default function About() {
             ></path>
           </svg>
           <span className="text-gray-700">
-            <span className="text-green-600">ID: </span>CSE 020069**
+            <span className="text-green-600">ID: </span>CSE 02006951
           </span>
         </div>
 
@@ -119,7 +119,7 @@ export default function About() {
                     d="M5 13l4 4L19 7"
                   ></path>
                 </svg>
-                <span className="text-gray-700">taposh@example.com</span>
+                <span className="text-gray-700">taposhtutorial@gmail.com</span>
               </div>
               <div className="flex items-center space-x-4 mt-2">
                 <svg
@@ -153,7 +153,7 @@ export default function About() {
                     d="M5 13l4 4L19 7"
                   ></path>
                 </svg>
-                <span className="text-gray-700">+8801823-855998</span>
+                <span className="text-gray-700">+8801580673014</span>
               </div>
             </div>
 

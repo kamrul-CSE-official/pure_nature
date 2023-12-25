@@ -6,35 +6,141 @@ export default function Gallery() {
   const imgData = [
     {
       id: 0,
-      img: "https://images.unsplash.com/photo-1580600301354-0ce8faef576c?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      img: "https://roofgardenbd.com/wp-content/uploads/2023/05/1-1024x576.jpg",
       title: "অসাধারন একটি প্রজেক্ট ছিলো",
     },
     {
       id: 1,
-      img: "https://images.unsplash.com/photo-1571146696514-4abef1714e3f?q=80&w=1776&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      img: "https://roofgardenbd.com/wp-content/uploads/2023/05/4-1024x576.jpg",
       title:
-        "প্রজেক্টা করতে অনেক সময় লাগেছিলো কিন্তু প্রজেক্ট কমপ্রিট হবার পর 😍",
+        "",
     },
     {
       id: 3,
-      img: "https://plus.unsplash.com/premium_photo-1673141390222-2bd01b623bf3?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "আলহামদুলিল্লাহ্ আমাদের আরো একটি সাকসেসফুল প্রজেক্ট",
+      img: "https://bangladeshpost.net/webroot/uploads/featureimage/2019-07/5d2353921a241.jpg",
+      title: "",
     },
     {
       id: 4,
-      img: "https://images.unsplash.com/photo-1602795969916-bfe693173620?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "মাসাআল্লাহ্ অসাধারন একটা প্রজেক্ট ছিলো",
+      img: "https://i.ytimg.com/vi/jxfFfOl9eoY/maxresdefault.jpg",
+      title: "",
     },
+
     {
       id: 5,
-      img: "https://images.unsplash.com/photo-1521708266372-b3547456cc2d?q=80&w=1919&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "মাসাআল্লাহ্ অসাধারন একটা প্রজেক্ট ছিলো",
+      img: "https://i.ytimg.com/vi/VSCO0UfUUhc/maxresdefault.jpg",
+      title: "",
     },
+
     {
       id: 6,
-      img: "https://images.unsplash.com/photo-1528475295645-81db59a20ac3?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "মাসাআল্লাহ্ অসাধারন একটা প্রজেক্ট ছিলো",
+      img: "https://dailyasianage.com/library/1515607716_2.jpg",
+      title: "",
     },
+
+    {
+      id: 7,
+      img: "https://www.assuregroupbd.com/images/blog/rooftop-gardening-thumb-1.jpg",
+      title: "",
+    },
+
+
+    {
+      id: 8,
+      img: "https://i.ytimg.com/vi/IYzTHOBTuAc/maxresdefault.jpg",
+      title: "",
+    },
+
+    {
+      id: 9,
+      img: "http://www.bonayon.com/image/catalog/fruit-plant-pack/bashundhara-project.JPG",
+      title: "",
+    },
+
+    {
+      id: 10,
+      img: "http://www.bonayon.com/image/catalog/fruit-plant-pack/growing-vegetables-in-container-dhaka-baridhara-gulshan-project.jpg",
+      title: "",
+    },
+
+    {
+      id: 11,
+      img: "http://www.bonayon.com/image/catalog/rooftop-terrace/137918818_14506121123_large.jpg",
+      title: "",
+    },
+
+    {
+      id: 12,
+      img: "https://www.newagebd.com/files/records/news/202105/136855_14.jpg",
+      title: "",
+    },
+
+    {
+      id: 13,
+      img: "https://www.assuregroupbd.com/images/blog/rooftop-gardening-thumb-1.jpg",
+      title: "",
+    },
+
+
+    {
+      id: 14,
+      img: "https://www.assuregroupbd.com/images/blog/rooftop-gardening-thumb-2.jpg",
+      title: "",
+    },
+
+    {
+      id: 15,
+      img: "https://assets-news.housing.com/news/wp-content/uploads/2022/04/28131657/Rooftop-garden-design-ideas-03.jpg",
+      title: "",
+    },
+
+
+    {
+      id: 16,
+      img: "https://www.assuregroupbd.com/images/blog/rooftop-gardening-thumb-4.jpg",
+      title: "",
+    },
+
+    {
+      id: 17,
+      img: "https://assets-news.housing.com/news/wp-content/uploads/2022/04/28131608/Rooftop-garden-design-ideas-02.jpg",
+      title: "",
+    },
+
+    {
+      id: 18,
+      img: "https://assets-news.housing.com/news/wp-content/uploads/2022/04/28132106/Rooftop-garden-design-ideas-06.jpg",
+      title: "",
+    },
+
+    {
+      id: 19,
+      img: "https://assets-news.housing.com/news/wp-content/uploads/2022/04/28132442/Rooftop-garden-design-ideas-09.jpg",
+      title: "",
+    },
+
+
+    {
+      id: 20,
+      img: "https://assets-news.housing.com/news/wp-content/uploads/2022/04/28132626/Rooftop-garden-design-ideas-11.jpg",
+      title: "",
+    },
+
+
+    {
+      id: 21,
+      img: "https://assets-news.housing.com/news/wp-content/uploads/2022/04/28132947/Rooftop-garden-design-ideas-15.jpg",
+      title: "",
+    },
+
+
+    {
+      id: 22,
+      img: "https://assets-news.housing.com/news/wp-content/uploads/2022/04/28133129/Rooftop-garden-design-ideas-17.jpg",
+      title: "",
+    },
+    
+    
   ];
   const [model, setModel] = useState(false);
   const [modalImageData, setModalImageData] = useState([]);

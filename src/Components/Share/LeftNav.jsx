@@ -58,7 +58,7 @@ export default function LeftNav() {
             <h3 className="text-xl">
               Hi, <span className="text-green-700">{user?.name}😍</span>
             </h3>
-            <p>What are you doing? 😊</p>
+            <p>উপভোগ করুন সবুজ দুনিয়া! 😊</p>
           </div>
         )}
       </ul>
